@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"8c2845608975c7b1","type":"text","text":"机器学习","x":-225,"y":-720,"width":250,"height":60},
+		{"id":"3106536af985fd0f","type":"text","text":"监督学习(Supervised)","x":-460,"y":-600,"width":250,"height":60},
+		{"id":"0743fec5a20c0f7d","type":"text","text":"无监督学习(unsupervised)","x":0,"y":-600,"width":250,"height":60},
+		{"id":"17155fe6d3061deb","type":"text","text":"Arranging machine learning projects","x":-678,"y":-770,"width":418,"height":50},
+		{"id":"78f9f8df2ecaf711","type":"text","text":"特征工程（Feature engineering）\n是创建、选择和转换特征的过程","x":-531,"y":-140,"width":431,"height":120},
+		{"id":"481a90473479c831","type":"text","text":"处理分类变量\n（Approaching Categorical Variables）\n将分类数据转换成模型可用的形式","x":-135,"y":-300,"width":438,"height":80},
+		{"id":"aa52c36f90322bdc","type":"text","text":"交叉验证(Cross-validation)\n评估模型性能的技术","x":-620,"y":-480,"width":320,"height":80},
+		{"id":"101028e14fb265e6","type":"text","text":"评估指标(Evaluation metrics)\n衡量模型的性能","x":161,"y":-745,"width":285,"height":80},
+		{"id":"1814053a0fa0a1bb","x":-800,"y":20,"width":250,"height":60,"type":"text","text":"模型性能"},
+		{"id":"c616dc365835ca9c","type":"text","text":"特征选择（Freature selection）\n从现有特征集中选择最重要的特征的过程。减少过拟合。","x":-531,"y":140,"width":405,"height":120},
+		{"id":"2630064573a93cb1","x":-60,"y":279,"width":250,"height":60,"type":"text","text":"网格搜索"},
+		{"id":"5b88a7ba70ca7398","x":-60,"y":340,"width":250,"height":60,"type":"text","text":"随机搜索"},
+		{"id":"03665da10480a948","x":-60,"y":430,"width":250,"height":60,"type":"text","text":"贝叶斯优化"},
+		{"id":"8e7eef9a191edeec","x":-600,"y":310,"width":451,"height":121,"type":"text","text":"超参优化（Hyperparameter Optimization）\n涉及到选择一组最优的超参数。\n这通常是一个试错的过程，\n"},
+		{"id":"ae23223ddd9b1a5c","x":-929,"y":568,"width":250,"height":60,"type":"text","text":"计算机视觉"},
+		{"id":"dae1d2f785d9e1eb","x":-537,"y":535,"width":417,"height":126,"type":"text","text":"图像分类与分割（Approaching Image Classification & Segmentation）"},
+		{"id":"5b61aee4d39dffb7","x":-1200,"y":-340,"width":489,"height":62,"type":"text","text":"文本分类/回归\n（Approaching Text Classification/Regression）"},
+		{"id":"f03c4bd9b9a582a3","x":-767,"y":-944,"width":250,"height":60,"type":"text","text":"概率论"},
+		{"id":"7421f3f0430979b7","x":-425,"y":-974,"width":250,"height":60,"type":"text","text":"信息论"}
+	],
+	"edges":[
+		{"id":"abd5de9970619c01","fromNode":"8c2845608975c7b1","fromSide":"bottom","toNode":"3106536af985fd0f","toSide":"top","label":"基础"},
+		{"id":"803a25001786b846","fromNode":"8c2845608975c7b1","fromSide":"bottom","toNode":"0743fec5a20c0f7d","toSide":"top","label":"基础"},
+		{"id":"b2ba227e3220ff01","fromNode":"aa52c36f90322bdc","fromSide":"top","toNode":"3106536af985fd0f","toSide":"bottom","label":"应用于"},
+		{"id":"e56609680f50d4c9","fromNode":"8c2845608975c7b1","fromSide":"bottom","toNode":"78f9f8df2ecaf711","toSide":"top","label":"重要步骤"},
+		{"id":"4ef8d751a534de96","fromNode":"78f9f8df2ecaf711","fromSide":"right","toNode":"481a90473479c831","toSide":"bottom","label":"一部分"},
+		{"id":"4d287f590f5ebb79","fromNode":"78f9f8df2ecaf711","fromSide":"left","toNode":"1814053a0fa0a1bb","toSide":"top","label":"提高"},
+		{"id":"dfe15a47de317e34","fromNode":"c616dc365835ca9c","fromSide":"left","toNode":"1814053a0fa0a1bb","toSide":"bottom","label":"提高"},
+		{"id":"d73201e1298694d7","fromNode":"8e7eef9a191edeec","fromSide":"left","toNode":"1814053a0fa0a1bb","toSide":"left","label":"提高"},
+		{"id":"d591ef1bba7fb186","fromNode":"2630064573a93cb1","fromSide":"left","toNode":"8e7eef9a191edeec","toSide":"right","label":"方法"},
+		{"id":"b0b546a60320b5c0","fromNode":"5b88a7ba70ca7398","fromSide":"left","toNode":"8e7eef9a191edeec","toSide":"right"},
+		{"id":"c50ffb5437ea53c9","fromNode":"03665da10480a948","fromSide":"left","toNode":"8e7eef9a191edeec","toSide":"right"},
+		{"id":"c3d24f6d860fdc70","fromNode":"ae23223ddd9b1a5c","fromSide":"right","toNode":"dae1d2f785d9e1eb","toSide":"left","label":"主要任务"},
+		{"id":"4a7f85f448c7fc0b","fromNode":"78f9f8df2ecaf711","fromSide":"left","toNode":"5b61aee4d39dffb7","toSide":"right","label":"重要步骤"},
+		{"id":"bea80366b528386e","fromNode":"8c2845608975c7b1","fromSide":"left","toNode":"5b61aee4d39dffb7","toSide":"top","label":"任务"}
+	]
+}

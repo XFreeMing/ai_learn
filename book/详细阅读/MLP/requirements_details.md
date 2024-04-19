@@ -1,0 +1,70 @@
+- **absl-py**: Google的Abseil Python库，提供Python应用程序的底层构建块。
+- **astunparse**: 将Python AST（抽象语法树）反解析为源代码。
+- **attrs**: 提供了创建类和属性的简洁方式。
+- **bcrypt**: 用于密码哈希，确保安全存储密码。
+- **cached-property**: 为Python类提供缓存属性的装饰器。
+- **cachetools**: 提供了多种Python缓存机制。
+- **cffi**: 提供调用C代码的接口。
+- **chardet**: 用于检测文本文件的字符编码。
+- **click**: 创建命令行界面（CLI）的Python包。
+- **cryptography**: 提供密码学函数和算法。
+- **cycler**: 用于创建循环对象，常用于图形和图表中。
+- **distro**: 获取Linux系统发行版信息。
+- **docker**: Docker容器管理的Python库。
+- **docker-compose**: 用于定义和运行多容器Docker应用。
+- **dockerpty**: 用于Python的Docker API中管理Docker的伪终端。
+- **docopt**: 从函数注释中解析命令行参数。
+- **future**: 提供Python 2和3之间的兼容性。
+- **gast**: 用于处理Python抽象语法树的通用抽象语法树库。
+- **google-auth**: Google的身份验证库。
+- **google-auth-oauthlib**: Google身份验证的OAuth库。
+- **google-pasta**: 用于代码重构和代码分析。
+- **grpcio**: 实现了gRPC，一个高性能的RPC框架。
+- **h5py**: 提供与HDF5数据格式交互的接口。
+- **idna**: 实现国际化域名（IDNA）标准。
+- **importlib-metadata**: 读取Python包的metadata。
+- **joblib**: 用于轻量级的管道和并行处理。
+- **jsonschema**: 实现JSON Schema的验证。
+- **keras-preprocessing**: Keras的数据预处理工具。
+- **kiwisolver**: 快速高效的约束求解器。
+- **markdown**: 将Markdown转换为HTML。
+- **matplotlib**: 数据可视化和图形绘制库。
+- **nltk**: 自然语言处理工具包。
+- **numpy**: 处理大型多维数组和矩阵的库。
+- **oauthlib**: OAuth请求签名的库。
+- **opt-einsum**: 优化大型运算，尤其是张量运算。
+- **pandas**: 数据分析和处理的库。
+- **paramiko**: 实现SSH2协议，提供SSH客户端和服务器功能。
+- **protobuf**: Google的协议缓冲区，用于结构化数据序列化。
+- **pyasn1**: 处理ASN.1（数据表示标准）数据。
+- **pyasn1-modules**: pyasn1的模块和协议实现。
+- **pycparser**: C语言解析器。
+- **pynacl**: 提供网络和加密算法。
+- **pyparsing**: 构建文本解析和处理工具。
+- **pyrsistent**: 提供持久化和不可变的数据结构。
+- **python-dateutil**: 处理日期和时间的库。
+- **python-dotenv**: 从`.env`文件加载环境变量。
+- **pytz**: 世界时区定义。
+- **pyyaml**: 处理YAML数据。
+- **regex**: 增强的正则表达式匹配操作。
+- **requests**: HTTP请求库。
+- **requests-oauthlib**: 结合了requests和oauthlib的OAuth认证。
+- **rsa**: RSA加密和解密的实现。
+- **scikit-learn**: 机器学习算法和工具。
+- **scipy**: 科学计算和技术计算。
+- **seaborn**: 基于matplotlib的统计图形库。
+- **six**: 提供Python 2和3兼容性。
+- **tensorboard**: TensorFlow的可视化工具。
+- **tensorboard-plugin-wit**: TensorBoard的交互式可视化工具。
+- **tensorflow**: 深度学习和机器学习框架。
+- **tensorflow-estimator**: TensorFlow模型训练和评估。
+- **termcolor**: 终端输出彩色文本。
+- **texttable**: 生成简单文本表格。
+- **threadpoolctl**: 管理线程池的大小和行为。
+- **torch**: 深度学习框架PyTorch。
+- **tqdm**: 快速、可扩展的进度条。
+- **urllib3**: 功能强大的HTTP客户端库。
+- **websocket-client**: WebSocket客户端实现。
+- **werkzeug**: WSGI工具库，用于Web开发。
+- **wrapt**: 函数/方法装饰器、包装器和代理。
+- **zipp**: 处理zip文件格式。
