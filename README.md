@@ -1,4 +1,6 @@
-# AI学习资源
+# GITHUB开源地址 
+[ai_learn](https://github.com/XFreeMing/ai_learn)
+# AI学习资源 
 ## 机器学习
 >《动手学机器学习》配套资源获取方式：
 - 配套源代码下载地址：https://github.com/boyu-ai/Hands-on-ML
