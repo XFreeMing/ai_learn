@@ -56,6 +56,15 @@
  *
  */
 
+/**
+ *
+ * Thoughts:
+ * use stack to solve this problem
+ * if open bracket push to stack
+ * if close bracket pop a element from stack,
+ * if the element is not match the open bracket, return false
+ *
+ */
 // @lc code=start
 impl Solution {
     pub fn is_valid(s: String) -> bool {
@@ -90,21 +99,29 @@ struct Solution;
 #[cfg(test)]
 mod tests {
     use super::*;
-    
     /**
      * Open brackets must be closed by the same type of brackets.
      */
     #[test]
     fn test_1() {
+        // good case
         let s = "()".to_string();
         let result = Solution::is_valid(s);
         assert!(result);
+        // bad case
+        let s = "(".to_string();
+        let result = Solution::is_valid(s);
+        assert!(!result);
+        // bad case
+        let s = ")".to_string();
+        let result = Solution::is_valid(s);
+        assert!(!result);
     }
     // Open brackets must be closed in the correct order.
     #[test]
     fn test_2() {
         let s = "()[]{}".to_string();
-        let result = Solution::is_valid(s);
+        let result: bool = Solution::is_valid(s);
         assert!(result);
     }
     // Every close bracket has a corresponding open bracket of the same type.
