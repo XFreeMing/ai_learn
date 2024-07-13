@@ -1,0 +1,6 @@
+numpy
+matplotlib
+scipy
+python-dotenv
+openai
+webvtt-py

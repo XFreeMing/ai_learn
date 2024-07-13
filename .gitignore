@@ -194,3 +194,4 @@ jupyterhub.sqlite
 jupyterhub_cookie_secret
 jupyterhub_config.py
 知乎AI全栈课程
+*.mp4
