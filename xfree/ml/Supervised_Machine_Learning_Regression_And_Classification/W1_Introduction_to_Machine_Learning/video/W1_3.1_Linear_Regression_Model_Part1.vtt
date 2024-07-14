@@ -592,136 +592,164 @@ Now, let's look at
 00:05:50.370 --> 00:05:53.440
 some notation for
 describing the data.
+> 现在，让我们看一下描述数据的一些符号。
 
 130
 00:05:53.440 --> 00:05:55.435
 This is notation that you find
+> 这是您在机器学习中会发现的符号，
 
 131
 00:05:55.435 --> 00:05:58.405
 useful throughout your
 journey in machine learning.
+> 在整个机器学习过程中都会用到。
 
 132
 00:05:58.405 --> 00:06:00.330
 As you increasingly get
+> 随着您对机器学习术语越来越熟悉，
 
 133
 00:06:00.330 --> 00:06:02.810
 familiar with machine
 learning terminology,
+> 这些将是您与他人讨论机器学习概念时可以使用的术语，
 
 134
 00:06:02.810 --> 00:06:04.860
 this would be
 terminology they can
+> 因为这些在AI中是非常标准的，
 
 135
 00:06:04.860 --> 00:06:07.070
 use to talk about machine
 learning concepts
+> 所以在这个专业中，您会多次看到这些符号，
 
 136
 00:06:07.070 --> 00:06:09.500
 with others as well
 since a lot of
+> 所以如果您不记得所有的符号，
 
 137
 00:06:09.500 --> 00:06:12.490
 this is quite
 standard across AI,
+> 没关系，随着时间的推移，您会自然而然地熟悉它们。
 
 138
 00:06:12.490 --> 00:06:14.630
 you'll be seeing this notation
+> 您刚刚看到的用于训练模型的数据集称为训练集，
 
 139
 00:06:14.630 --> 00:06:16.625
 multiple times in
 this specialization,
+> 请注意，您的客户的房子不在这个数据集中，
 
 140
 00:06:16.625 --> 00:06:18.500
 so it's okay if you don't
+> 因为它还没有出售，所以没有人知道价格，
 
 141
 00:06:18.500 --> 00:06:20.590
 remember everything
 for assign through,
+> 所以无法在这个数据集中找到，
 
 142
 00:06:20.590 --> 00:06:24.085
 it will naturally become
 more familiar overtime.
+> 但是您可以使用这个数据集来训练模型，
 
 143
 00:06:24.085 --> 00:06:28.020
 The dataset that you
 just saw and that is
+> 该数据集用于训练模型，
 
 144
 00:06:28.020 --> 00:06:32.900
 used to train the model
 is called a training set.
+> 以便模型可以从中学习。
 
 145
 00:06:32.900 --> 00:06:35.900
 Note that your client's
 house is not in
+> 在这个数据集中，
 
 146
 00:06:35.900 --> 00:06:38.435
 this dataset because
 it's not yet sold,
+> 您的客户的房子不在这个数据集中，
 
 147
 00:06:38.435 --> 00:06:41.015
 so no one knows
 what the price is.
+> 因为它还没有出售，所以没有人知道价格，
 
 148
 00:06:41.015 --> 00:06:43.835
 To predict the price of
 your client's house,
+> 为了预测您客户的房子的价格，
 
 149
 00:06:43.835 --> 00:06:46.740
 you first train your
 model to learn from
+> 您首先需要训练模型，
 
 150
 00:06:46.740 --> 00:06:49.495
 the training set and
 that model can then
+> 以便模型可以从中学习。
 
 151
 00:06:49.495 --> 00:06:53.005
 predict your client's
 houses price.
+> 然后，该模型可以预测您客户的房子的价格。
 
 152
 00:06:53.005 --> 00:06:56.670
 In Machine Learning, the
 standard notation to denote
+> 在机器学习中，
 
 153
 00:06:56.670 --> 00:07:00.620
 the input here is lowercase x,
+> 用于表示输入变量的标准符号是小写x，
 
 154
 00:07:00.620 --> 00:07:03.265
 and we call this
 the input variable,
+> 这个输入变量也称为特征或输入特征。
 
 155
 00:07:03.265 --> 00:07:09.005
 is also called a feature
 or an input feature.
 
+
 156
 00:07:09.005 --> 00:07:13.240
 For example, for the first
 house in your training set,
+> 例如，对于训练集中的第一所房子，
 
 157
 00:07:13.240 --> 00:07:15.205

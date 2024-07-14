@@ -9,10 +9,11 @@ You're joining millions of others who have taken either this or the original cou
 
 - Define machine learning
 - Define supervised learning
+1. 使用带有正确答案的数据来训练模型。
 - Define unsupervised learning
 - Write and run Python code in Jupyter Notebooks
 - Define a regression model
-> 定义回归模型
+> 它使用单一输入变量进行预测，也称为一元线性回归
 - implement and visualize a cost function
 > 实现和可视化成本函数
 - implement gradient descent
@@ -38,9 +39,17 @@ You're joining millions of others who have taken either this or the original cou
 
 # 3. Regression Model
 
-- [3.1 Linear regression model part1](./video/W1_3.1_Linear_regression_model_part1.md)
+- [3.1 Linear regression model part1](./video/W1_3.1_Linear_Regression_Model_Part1.md)
+1. 线性回归模型是监督学习过程中的基础模型，是一条直线拟合数据集，实现预测。
+2. 回归模型和分类模型的区别在于输出类型，回归模型输出连续值，分类模型输出离散值。
+3. Training set概念
+4. x = input variable, y = output/target variable,m = number of training examples, i = index of training example
+
 - [3.2 Linear regression model part1](./video/W1_3.2_Linear_Regression_Model_Part2.md)
-- [Lab:Model_representation](./lab/C1_W1_Lab02_Model_Representation_Soln.ipynb)
+1. 预测值 = y-hat, 目标值 = y
+2. 线性回归模型的表示：f_w,b(x) = w*x + b
+- 【OK】[Lab:Model_representation](./lab/C1_W1_Lab02_Model_Representation_Soln.ipynb)
+没涉及w,b 的动态更新，只是简单的模型表示
 - [3.3 Cost function formula](./video/W1_3.3_Cost_Function_Formula.md)
 - [3.4 Visualizing the cost function](./video/W1_3.4_Cost_Function_Intuition.md)
 - [3.5 Visualization examples](./video/W1_3.5_Visualization_Examples.md)
