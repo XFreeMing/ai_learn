@@ -80,7 +80,7 @@ def generate_summary_stream(path):
      
     summary_path = f'{path_str[:-4]}.md'
     if os.path.exists(summary_path):
-        return "已存在"
+        return f"{video_name}:已存在"
 
     llm_res = llm_kimi_stream(prompt)
     show_data = ""
@@ -94,7 +94,7 @@ def generate_summary_stream(path):
 if __name__ == "__main__":
     # 获取指定目录下的所有mp4文件
     from pathlib import Path
-    path = Path("/home/ai_demo/workspace/ai_learn/xfree/机器学习/Supervised Machine Learning-Regression And Classification/W1-Introduction to Machine Learning")
+    path = Path("/home/ai_demo/workspace/ai_learn/xfree/ml/Supervised_Machine_Learning_Regression_And_Classification/W1_Introduction_to_Machine_Learning")
     files = path.glob("*.mp4")
     for file in files:
         print(generate_summary_stream(file))
