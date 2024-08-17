@@ -10,6 +10,7 @@ You'll get to practice implementing logistic regression with regularization at t
 - Address overfitting using regularization, to improve model performance
 
 # 1. Classification with logistic regression
+> 使用逻辑回归进行分类
 - Motivations
 - [Lab: Classification](./lab/C1_W3_Lab01_Classification_Soln.ipynb)
 - Logistic regression

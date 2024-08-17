@@ -59,6 +59,9 @@ You're joining millions of others who have taken either this or the original cou
 # 4. Train the model with gradient descent
 > 使用梯度下降训练模型
 - [4.1 Gradient descent](./video/W1_4.1_Gradient_Descent.md)
+1. 梯度下降算法的工作原理 = 不断调整参数来减少成本函数的值直至找到成本函数的最小值
+2. 初始参数的选择对结果影响不大通常是0
+3. 损失函数可能存在多个局部最小值
 ![alt text](./images/Gradient_Descent.png)
 - [4.2 Implementing gradient descent](./video/W1_4.2_Implementing_Gradient_Descent.md)
 - [4.3 Gradient descent intuition](./video/W1_4.3_Gradient_Descent_Intuition.md)

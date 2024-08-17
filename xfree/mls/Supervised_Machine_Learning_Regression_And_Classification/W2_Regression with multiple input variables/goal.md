@@ -36,4 +36,8 @@ At the end of the week, you'll get to practice implementing linear regression in
 
 
 
+# 3. Practice quize: Gradient descent in practice 
+> 练习测验：实践中的梯度下降
 
+# 4. W2 practice lab:Linear regression
+> W2实践实验室：线性回归
