@@ -1,11 +1,20 @@
 # Instructions
 Welcome to the Machine Learning Specialization!
-> 欢迎来到机器学习专业化课程！
+> - Specialization：专门化/专业化
+
+
 You're joining millions of others who have taken either this or the original course, which led to the founding of Coursera,and has helped mullions of other learners, like you, take a look at the exciting world of machine learning!
 > 你将加入数百万其他学习者，他们已经参加了这门课程或原始课程，这些课程导致了Coursera的成立，并帮助了数百万其他学习者，比如你，了解令人兴奋的机器学习世界！
+> - taken: 参加
+> - either: 任何一个
+> - led to: 导致
+> - founding: 成立
+> - take a look at: 看一看
+> - exciting world: 令人兴奋的世界
 
 
 # Learning Objectives
+> - Objectives：目标
 
 - Define machine learning
 - Define supervised learning
@@ -58,6 +67,9 @@ You're joining millions of others who have taken either this or the original cou
 
 # 4. Train the model with gradient descent
 > 使用梯度下降训练模型
+> - Train: 训练
+> - gradient descent: 梯度下降
+
 - [4.1 Gradient descent](./video/W1_4.1_Gradient_Descent.md)
 1. 梯度下降算法的工作原理 = 不断调整参数来减少成本函数的值直至找到成本函数的最小值
 2. 初始参数的选择对结果影响不大通常是0
