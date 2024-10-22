@@ -18,7 +18,7 @@ You're joining millions of others who have taken either this or the original cou
 
 - Define machine learning
 - Define supervised learning
-1. 使用带有正确答案的数据来训练模型。
+    1. 使用带有正确答案的数据来训练模型。
 - Define unsupervised learning
 - Write and run Python code in Jupyter Notebooks
 - Define a regression model
@@ -55,11 +55,14 @@ You're joining millions of others who have taken either this or the original cou
 4. x = input variable, y = output/target variable,m = number of training examples, i = index of training example
 
 - [3.2 Linear regression model part1](./video/W1_3.2_Linear_Regression_Model_Part2.md)
-1. 预测值 = y-hat, 目标值 = y
-2. 线性回归模型的表示：f_w,b(x) = w*x + b
+    1. 预测值 = y-hat, 目标值 = y
+    2. 线性回归模型的表示：f_w,b(x) = w*x + b
 - 【OK】[Lab:Model_representation](./lab/C1_W1_Lab02_Model_Representation_Soln.ipynb)
-没涉及w,b 的动态更新，只是简单的模型表示
+    没涉及w,b 的动态更新，只是简单的模型表示
 - [3.3 Cost function formula](./video/W1_3.3_Cost_Function_Formula.md)
+    1. 成本函数的定义：J(w,b) = np.sum((h - y) ** 2) / (2 * m)
+    2. 均方误差：有惩罚大误差的效果
+    3. 最小化平方误差等价于最大化似然估计
 - [3.4 Visualizing the cost function](./video/W1_3.4_Cost_Function_Intuition.md)
 - [3.5 Visualization examples](./video/W1_3.5_Visualization_Examples.md)
 - [Lab:Cost function](./lab/C1_W1_Lab03_Cost_function_Soln.ipynb)
@@ -71,9 +74,9 @@ You're joining millions of others who have taken either this or the original cou
 > - gradient descent: 梯度下降
 
 - [4.1 Gradient descent](./video/W1_4.1_Gradient_Descent.md)
-1. 梯度下降算法的工作原理 = 不断调整参数来减少成本函数的值直至找到成本函数的最小值
-2. 初始参数的选择对结果影响不大通常是0
-3. 损失函数可能存在多个局部最小值
+    1. 梯度下降算法的工作原理 = 不断调整参数来减少成本函数的值直至找到成本函数的最小值
+    2. 初始参数的选择对结果影响不大通常是0
+    3. 损失函数可能存在多个局部最小值
 ![alt text](./images/Gradient_Descent.png)
 - [4.2 Implementing gradient descent](./video/W1_4.2_Implementing_Gradient_Descent.md)
 - [4.3 Gradient descent intuition](./video/W1_4.3_Gradient_Descent_Intuition.md)

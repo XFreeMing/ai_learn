@@ -1,0 +1,122 @@
+WEBVTT
+
+1
+00:00:00.470 --> 00:00:08.025
+In the last video, you saw what is unsupervised learning, and one type of unsupervised learning called clustering.
+
+2
+00:00:08.025 --> 00:00:17.640
+Let's give a slightly more formal definition of unsupervised learning and take a quick look at some other types of unsupervised learning other than clustering.
+
+3
+00:00:17.640 --> 00:00:36.600
+Whereas in supervised learning, the data comes with both inputs x and input labels y, in unsupervised learning, the data comes only with inputs x but not output labels y, and the algorithm has to find some structure or some pattern or something interesting in the data.
+
+4
+00:00:36.600 --> 00:00:45.805
+We're seeing just one example of unsupervised learning called a clustering algorithm, which groups similar data points together.
+
+5
+00:00:45.805 --> 00:00:53.390
+In this specialization, you'll learn about clustering as well as two other types of unsupervised learning.
+
+6
+00:00:53.390 --> 00:00:59.870
+One is called anomaly detection, which is used to detect unusual events.
+
+7
+00:00:59.870 --> 00:01:13.030
+This turns out to be really important for fraud detection in the financial system, where unusual events, unusual transactions could be signs of fraud and for many other applications.
+
+8
+00:01:13.030 --> 00:01:17.105
+You also learn about dimensionality reduction.
+
+9
+00:01:17.105 --> 00:01:26.935
+This lets you take a big data-set and almost magically compress it to a much smaller data-set while losing as little information as possible.
+
+10
+00:01:26.935 --> 00:01:33.020
+In case anomaly detection and dimensionality reduction don't seem to make too much sense to you yet.
+
+11
+00:01:33.020 --> 00:01:37.120
+Don't worry about it. We'll get to this later in the specialization.
+
+12
+00:01:37.120 --> 00:01:47.620
+Now, I'd like to ask you another question to help you check your understanding, and no pressure, if you don't get it right on the first try, is totally fine.
+
+13
+00:01:47.620 --> 00:01:54.200
+Please select any of the following that you think are examples of unsupervised learning.
+
+14
+00:01:54.200 --> 00:02:01.650
+Two are unsupervised examples and two are supervised learning examples. Please take a look.
+
+15
+00:02:02.930 --> 00:02:06.670
+Maybe you remember the spam filtering problem.
+
+16
+00:02:06.670 --> 00:02:15.275
+If you have labeled data you now label as spam or non-spam e-mail, you can treat this as a supervised learning problem.
+
+17
+00:02:15.275 --> 00:02:18.175
+The second example, the news story example.
+
+18
+00:02:18.175 --> 00:02:23.690
+That's exactly the Google News and tangible example that you saw in the last video.
+
+19
+00:02:23.690 --> 00:02:29.515
+You can approach that using a clustering algorithm to group news articles together.
+
+20
+00:02:29.515 --> 00:02:32.465
+That we'll use unsupervised learning.
+
+21
+00:02:32.465 --> 00:02:36.810
+The market segmentation example that I talked about a little bit earlier.
+
+22
+00:02:36.810 --> 00:02:47.600
+You can do that as an unsupervised learning problem as well because you can give your algorithm some data and ask it to discover market segments automatically.
+
+23
+00:02:47.600 --> 00:02:51.620
+The final example on diagnosing diabetes.
+
+24
+00:02:51.620 --> 00:02:57.775
+Well, actually that's a lot like our breast cancer example from the supervised learning videos.
+
+25
+00:02:57.775 --> 00:03:04.205
+Only instead of benign or malignant tumors, we instead have diabetes or not diabetes.
+
+26
+00:03:04.205 --> 00:03:10.990
+You can approach this as a supervised learning problem, just like we did for the breast tumor classification problem.
+
+27
+00:03:10.990 --> 00:03:25.135
+Even though in the last video, we've talked mainly about clustering, in later videos, in this specialization, we'll dive much more deeply into anomaly detection and dimensionality reduction as well.
+
+28
+00:03:25.135 --> 00:03:27.885
+That's unsupervised learning.
+
+29
+00:03:27.885 --> 00:03:36.545
+Before we wrap up this section, I want to share with you something that I find really exciting, and useful, which is the use of Jupyter Notebooks in machine learning.
+
+30
+00:03:36.545 --> 00:03:39.510
+Let's take a look at that in the next video.
+

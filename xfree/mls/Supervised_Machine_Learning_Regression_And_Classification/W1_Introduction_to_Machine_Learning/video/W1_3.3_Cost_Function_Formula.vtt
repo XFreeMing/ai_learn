@@ -48,6 +48,7 @@ Let's look at what this means.
 Recall that you have a
 training set that contains
 > 回想一下，你有一个包含
+
 10
 00:00:21.990 --> 00:00:26.040
 input features x and
@@ -110,7 +111,7 @@ the parameters w and b
 20
 00:00:57.285 --> 00:01:01.920
 referred to as coefficients
-or as weights.
+or as weights.plots
 > 被称为系数或权重。
 
 21
