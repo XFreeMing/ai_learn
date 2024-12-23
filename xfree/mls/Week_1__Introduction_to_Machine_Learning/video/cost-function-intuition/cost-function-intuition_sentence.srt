@@ -1,0 +1,392 @@
+1
+00:00:01,130 --> 00:00:05,255
+We're seeing the mathematical definition of the cost function.
+
+2
+00:00:05,255 --> 00:00:09,645
+Now, let's build some intuition about what the cost function is really doing.
+
+3
+00:00:09,645 --> 00:00:17,325
+In this video, we'll walk through one example to see how the cost function can be used to find the best parameters for your model.
+
+4
+00:00:17,325 --> 00:00:22,185
+I know this video's little bit longer than the others, but bear with me, I think it'll be worth it.
+
+5
+00:00:22,185 --> 00:00:26,305
+To recap, here's what we've seen about the cost function so far.
+
+6
+00:00:26,305 --> 00:00:35,245
+You want to fit a straight line to the training data, so you have this model, fw, b of x is w times x, plus b.
+
+7
+00:00:35,245 --> 00:00:39,485
+Here, the model's parameters are w, and b.
+
+8
+00:00:39,485 --> 00:00:46,625
+Now, depending on the values chosen for these parameters, you get different straight lines like this.
+
+9
+00:00:46,625 --> 00:00:53,780
+You want to find values for w, and b, so that the straight line fits the training data well.
+
+10
+00:00:53,780 --> 00:01:02,845
+To measure how well a choice of w, and b fits the training data, you have a cost function J.
+
+11
+00:01:02,845 --> 00:01:12,500
+What the cost function J does is, it measures the difference between the model's predictions, and the actual true values for y.
+
+12
+00:01:12,500 --> 00:01:22,885
+What you see later, is that linear regression would try to find values for w, and b, then make a J of w be as small as possible.
+
+13
+00:01:22,885 --> 00:01:25,485
+In math, we write it like this.
+
+14
+00:01:25,485 --> 00:01:32,610
+We want to minimize, J as a function of w, and b.
+
+15
+00:01:32,610 --> 00:01:41,575
+Now, in order for us to better visualize the cost function J, this work of a simplified version of the linear regression model.
+
+16
+00:01:41,575 --> 00:01:48,585
+We're going to use the model fw of x, is w times x.
+
+17
+00:01:48,585 --> 00:01:58,085
+You can think of this as taking the original model on the left, and getting rid of the parameter b, or setting the parameter b equal to 0.
+
+18
+00:01:58,085 --> 00:02:04,890
+It just goes away from the equation, so f is now just w times x.
+
+19
+00:02:04,890 --> 00:02:12,615
+You now have just one parameter w, and your cost function J, looks similar to what it was before.
+
+20
+00:02:12,615 --> 00:02:32,635
+Taking the difference, and squaring it, except now, f is equal to w times xi, and J is now a function of just w. The goal becomes a little bit different as well, because you have just one parameter, w, not w and b.
+
+21
+00:02:32,635 --> 00:02:43,520
+With this simplified model, the goal is to find the value for w, that minimizes J of w.
+
+22
+00:02:43,520 --> 00:02:50,155
+To see this visually, what this means is that if b is set to 0, then f defines a line that looks like this.
+
+23
+00:02:50,155 --> 00:02:57,830
+You see that the line passes through the origin here, because when x is 0, f of x is 0 too.
+
+24
+00:02:57,830 --> 00:03:14,785
+Now, using this simplified model, let's see how the cost function changes as you choose different values for the parameter w. In particular, let's look at graphs of the model f of x, and the cost function J.
+
+25
+00:03:14,785 --> 00:03:21,475
+I'm going to plot these side-by-side, and you'll be able to see how the two are related.
+
+26
+00:03:21,475 --> 00:03:42,320
+First, notice that for f subscript w, when the parameter w is fixed, that is, is always a constant value, then fw is only a function of x, which means that the estimated value of y depends on the value of the input x.
+
+27
+00:03:42,320 --> 00:04:14,865
+In contrast, looking to the right, the cost function J, is a function of w, where w controls the slope of the line defined by f w. The cost defined by J, depends on a parameter, in this case, the parameter w. Let's go ahead, and plot these functions, fw of x, and J of w side-by-side so you can see how they are related.
+
+28
+00:04:14,865 --> 00:04:22,005
+We'll start with the model, that is the function fw of x on the left.
+
+29
+00:04:22,005 --> 00:04:30,800
+Here are the input feature x is on the horizontal axis, and the output value y is on the vertical axis.
+
+30
+00:04:30,800 --> 00:04:40,030
+Here's the plots of three points representing the training set at positions 1, 1, 2, 2, and 3,3.
+
+31
+00:04:40,030 --> 00:04:44,715
+Let's pick a value for w. Say w is 1.
+
+32
+00:04:44,715 --> 00:04:54,755
+For this choice of w, the function fw, they'll say this straight line with a slope of 1.
+
+33
+00:04:54,755 --> 00:05:03,060
+Now, what you can do next is calculate the cost J when w equals 1.
+
+34
+00:05:03,060 --> 00:05:09,785
+You may recall that the cost function is defined as follows, is the squared error cost function.
+
+35
+00:05:09,785 --> 00:05:18,940
+If you substitute fw(X^i) with w times X^i, the cost function looks like this.
+
+36
+00:05:18,940 --> 00:05:24,870
+Where this expression is now w times X^i minus Y^i.
+
+37
+00:05:24,870 --> 00:05:37,225
+For this value of w, it turns out that the error term inside the cost function, this w times X^i minus Y^i is equal to 0 for each of the three data points.
+
+38
+00:05:37,225 --> 00:05:41,820
+Because for this data-set, when x is 1, then y is 1.
+
+39
+00:05:41,820 --> 00:05:52,885
+When w is also 1, then f(x) equals 1, so f(x) equals y for this first training example, and the difference is 0.
+
+40
+00:05:52,885 --> 00:05:57,755
+Plugging this into the cost function J, you get 0 squared.
+
+41
+00:05:57,755 --> 00:06:04,720
+Similarly, when x is 2, then y is 2, and f(x) is also 2.
+
+42
+00:06:04,720 --> 00:06:08,835
+Again, f(x) equals y, for the second training example.
+
+43
+00:06:08,835 --> 00:06:15,085
+In the cost function, the squared error for the second example is also 0 squared.
+
+44
+00:06:15,085 --> 00:06:22,530
+Finally, when x is 3, then y is 3 and f(3) is also 3.
+
+45
+00:06:22,530 --> 00:06:27,110
+In a cost function the third squared error term is also 0 squared.
+
+46
+00:06:27,110 --> 00:06:42,670
+For all three examples in this training set, f(X^i) equals Y^i for each training example i, so f(X^i) minus Y^i is 0.
+
+47
+00:06:42,690 --> 00:06:52,125
+For this particular data-set, when w is 1, then the cost J is equal to 0.
+
+48
+00:06:52,125 --> 00:06:58,195
+Now, what you can do on the right is plot the cost function J.
+
+49
+00:06:58,195 --> 00:07:14,810
+Notice that because the cost function is a function of the parameter w, the horizontal axis is now labeled w and not x, and the vertical axis is now J and not y.
+
+50
+00:07:14,900 --> 00:07:20,200
+You have J(1) equals to 0.
+
+51
+00:07:20,200 --> 00:07:29,975
+In other words, when w equals 1, J(w) is 0, so let me go ahead and plot that.
+
+52
+00:07:29,975 --> 00:07:45,520
+Now, let's look at how F and J change for different values of w. W can take on a range of values, so w can take on negative values, w can be 0, and it can take on positive values too.
+
+53
+00:07:45,520 --> 00:07:55,280
+What if w is equal to 0.5 instead of 1, what would these graphs look like then? Let's go ahead and plot that.
+
+54
+00:07:55,280 --> 00:08:08,600
+Let's set w to be equal to 0.5, and in this case, the function f(x) now looks like this, is a line with a slope equal to 0.5.
+
+55
+00:08:09,090 --> 00:08:15,790
+Let's also compute the cost J, when w is 0.5.
+
+56
+00:08:15,790 --> 00:08:44,385
+Recall that the cost function is measuring the squared error or difference between the estimator value, that is y hat I, which is F(X^i), and the true value, that is Y^i for each example i. Visually you can see that the error or difference is equal to the height of this vertical line here when x is equal to 1.
+
+57
+00:08:44,385 --> 00:08:54,975
+Because this lower line is the gap between the actual value of y and the value that the function f predicted, which is a bit further down here.
+
+58
+00:08:54,975 --> 00:09:02,955
+For this first example, when x is 1, f(x) is 0.5.
+
+59
+00:09:02,955 --> 00:09:10,325
+The squared error on the first example is 0.5 minus 1 squared.
+
+60
+00:09:10,325 --> 00:09:15,575
+Remember the cost function, we'll sum over all the training examples in the training set.
+
+61
+00:09:15,575 --> 00:09:18,890
+Let's go on to the second training example.
+
+62
+00:09:18,890 --> 00:09:29,510
+When x is 2, the model is predicting f(x) is 1 and the actual value of y is 2.
+
+63
+00:09:29,510 --> 00:09:45,835
+The error for the second example is equal to the height of this little line segment here, and the squared error is the square of the length of this line segment, so you get 1 minus 2 squared.
+
+64
+00:09:45,835 --> 00:09:48,290
+Let's do the third example.
+
+65
+00:09:48,290 --> 00:09:59,095
+Repeating this process, the error here, also shown by this line segment, is 1.5 minus 3 squared.
+
+66
+00:09:59,095 --> 00:10:05,285
+Next, we sum up all of these terms, which turns out to be equal to 3.5.
+
+67
+00:10:05,285 --> 00:10:14,755
+Then we multiply this term by 1 over 2m, where m is the number of training examples.
+
+68
+00:10:14,755 --> 00:10:29,470
+Since there are three training examples m equals 3, so this is equal to 1 over 2 times 3, where this m here is 3.
+
+69
+00:10:29,470 --> 00:10:35,635
+If we work out the math, this turns out to be 3.5 divided by 6.
+
+70
+00:10:35,635 --> 00:10:40,285
+The cost J is about 0.58.
+
+71
+00:10:40,285 --> 00:10:44,440
+Let's go ahead and plot that over there on the right.
+
+72
+00:10:44,440 --> 00:11:07,075
+Now, let's try one more value for w. How about if w equals 0? What do the graphs for f and J look like when w is equal to 0? It turns out that if w is equal to 0, then f of x is just this horizontal line that is exactly on the x-axis.
+
+73
+00:11:07,075 --> 00:11:17,140
+The error for each example is a line that goes from each point down to the horizontal line that represents f of x equals 0.
+
+74
+00:11:17,140 --> 00:11:36,160
+The cost J when w equals 0 is 1 over 2m times the quantity, 1^2 plus 2^2 plus 3^2, and that's equal to 1 over 6 times 14, which is about 2.33.
+
+75
+00:11:36,160 --> 00:11:44,680
+Let's plot this point where w is 0 and J of 0 is 2.33 over here.
+
+76
+00:11:44,680 --> 00:11:53,755
+You can keep doing this for other values of w. Since w can be any number, it can also be a negative value.
+
+77
+00:11:53,755 --> 00:12:02,665
+If w is negative 0.5, then the line f is a downward-sloping line like this.
+
+78
+00:12:02,665 --> 00:12:14,155
+It turns out that when w is negative 0.5 then you end up with an even higher cost, around 5.25, which is this point up here.
+
+79
+00:12:14,155 --> 00:12:21,025
+You can continue computing the cost function for different values of w and so on and plot these.
+
+80
+00:12:21,025 --> 00:12:32,050
+It turns out that by computing a range of values, you can slowly trace out what the cost function J looks like and that's what J is.
+
+81
+00:12:32,050 --> 00:12:43,390
+To recap, each value of parameter w corresponds to different straight line fit, f of x, on the graph to the left.
+
+82
+00:12:43,390 --> 00:13:18,730
+For the given training set, that choice for a value of w corresponds to a single point on the graph on the right because for each value of w, you can calculate the cost J of w. For example, when w equals 1, this corresponds to this straight line fit through the data and it also corresponds to this point on the graph of J, where w equals 1 and the cost J of 1 equals 0.
+
+83
+00:13:18,730 --> 00:13:25,855
+Whereas when w equals 0.5, this gives you this line which has a smaller slope.
+
+84
+00:13:25,855 --> 00:13:36,775
+This line in combination with the training set corresponds to this point on the cost function graph at w equals 0.5.
+
+85
+00:13:36,775 --> 00:13:48,700
+For each value of w you wind up with a different line and its corresponding costs, J of w, and you can use these points to trace out this plot on the right.
+
+86
+00:13:48,700 --> 00:14:05,875
+Given this, how can you choose the value of w that results in the function f, fitting the data well? Well, as you can imagine, choosing a value of w that causes J of w to be as small as possible seems like a good bet.
+
+87
+00:14:05,875 --> 00:14:18,010
+J is the cost function that measures how big the squared errors are, so choosing w that minimizes these squared errors, makes them as small as possible, will give us a good model.
+
+88
+00:14:18,010 --> 00:14:28,915
+In this example, if you were to choose the value of w that results in the smallest possible value of J of w you'd end up picking w equals 1.
+
+89
+00:14:28,915 --> 00:14:31,900
+As you can see, that's actually a pretty good choice.
+
+90
+00:14:31,900 --> 00:14:36,520
+This results in the line that fits the training data very well.
+
+91
+00:14:36,520 --> 00:14:46,165
+That's how in linear regression you use the cost function to find the value of w that minimizes J.
+
+92
+00:14:46,165 --> 00:14:58,135
+In the more general case where we had parameters w and b rather than just w, you find the values of w and b that minimize J.
+
+93
+00:14:58,135 --> 00:15:05,395
+To summarize, you saw plots of both f and J and worked through how the two are related.
+
+94
+00:15:05,395 --> 00:15:16,180
+As you vary w or vary w and b you end up with different straight lines and when that straight line passes across the data, the cause J is small.
+
+95
+00:15:16,180 --> 00:15:26,215
+The goal of linear regression is to find the parameters w or w and b that results in the smallest possible value for the cost function J.
+
+96
+00:15:26,215 --> 00:15:42,010
+Now in this video, we worked through our example with a simplified problem using only w. In the next video, let's visualize what the cost function looks like for the full version of linear regression using both w and b.
+
+97
+00:15:42,010 --> 00:15:44,365
+You see some cool 3D plots.
+
+98
+00:15:44,365 --> 00:15:46,670
+Let's go to the next video.
+

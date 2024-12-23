@@ -1,0 +1,658 @@
+WEBVTT
+
+1
+00:00:01.280 --&gt; 00:00:05.055
+I remember when I first
+learned about vectorization,
+
+2
+00:00:05.055 --&gt; 00:00:07.244
+I spent many hours
+on my computer
+
+3
+00:00:07.244 --&gt; 00:00:09.210
+taking an unvectorized version
+
+4
+00:00:09.210 --&gt; 00:00:10.455
+of an algorithm running it,
+
+5
+00:00:10.455 --&gt; 00:00:12.795
+see how long it run,
+and then running
+
+6
+00:00:12.795 --&gt; 00:00:14.400
+a vectorized version of the code
+
+7
+00:00:14.400 --&gt; 00:00:16.320
+and seeing how much
+faster that run,
+
+8
+00:00:16.320 --&gt; 00:00:18.585
+and I just spent hours
+playing with that.
+
+9
+00:00:18.585 --&gt; 00:00:20.670
+And it frankly blew my mind that
+
+10
+00:00:20.670 --&gt; 00:00:23.985
+the same algorithm vectorized
+would run so much faster.
+
+11
+00:00:23.985 --&gt; 00:00:26.550
+It felt almost like
+a magic trick to me.
+
+12
+00:00:26.550 --&gt; 00:00:28.650
+In this video, let's figure
+
+13
+00:00:28.650 --&gt; 00:00:30.930
+out how this magic
+trick really works.
+
+14
+00:00:30.930 --&gt; 00:00:32.700
+Let's take a deeper look at how
+
+15
+00:00:32.700 --&gt; 00:00:34.440
+a vectorized implementation may
+
+16
+00:00:34.440 --&gt; 00:00:36.885
+work on your computer
+behind the scenes.
+
+17
+00:00:36.885 --&gt; 00:00:38.895
+Let's look at this for loop.
+
+18
+00:00:38.895 --&gt; 00:00:42.900
+The for loop like this runs
+without vectorization.
+
+19
+00:00:42.900 --&gt; 00:00:47.690
+If j ranges from 0 to say 15,
+
+20
+00:00:47.690 --&gt; 00:00:49.640
+this piece of code performs
+
+21
+00:00:49.640 --&gt; 00:00:51.970
+operations one after another.
+
+22
+00:00:51.970 --&gt; 00:00:56.955
+On the first timestamp which
+I'm going to write as t0.
+
+23
+00:00:56.955 --&gt; 00:01:01.570
+It first operates on
+the values at index 0.
+
+24
+00:01:01.570 --&gt; 00:01:03.555
+At the next time-step,
+
+25
+00:01:03.555 --&gt; 00:01:06.500
+it calculates values
+corresponding to index
+
+26
+00:01:06.500 --&gt; 00:01:09.725
+1 and so on until the 15th step,
+
+27
+00:01:09.725 --&gt; 00:01:12.625
+where it computes that.
+
+28
+00:01:12.625 --&gt; 00:01:14.810
+In other words, it calculates
+
+29
+00:01:14.810 --&gt; 00:01:17.435
+these computations
+one step at a time,
+
+30
+00:01:17.435 --&gt; 00:01:19.860
+one step after another.
+
+31
+00:01:19.880 --&gt; 00:01:24.080
+In contrast, this
+function in NumPy is
+
+32
+00:01:24.080 --&gt; 00:01:28.285
+implemented in the computer
+hardware with vectorization.
+
+33
+00:01:28.285 --&gt; 00:01:33.095
+The computer can get all
+values of the vectors w and x,
+
+34
+00:01:33.095 --&gt; 00:01:35.090
+and in a single-step,
+
+35
+00:01:35.090 --&gt; 00:01:38.180
+it multiplies each pair of w and
+
+36
+00:01:38.180 --&gt; 00:01:41.825
+x with each other all at
+the same time in parallel.
+
+37
+00:01:41.825 --&gt; 00:01:45.980
+Then after that, the computer
+takes these 16 numbers and
+
+38
+00:01:45.980 --&gt; 00:01:47.960
+uses specialized hardware to
+
+39
+00:01:47.960 --&gt; 00:01:50.269
+add them altogether
+very efficiently,
+
+40
+00:01:50.269 --&gt; 00:01:53.990
+rather than needing to carry
+out distinct additions
+
+41
+00:01:53.990 --&gt; 00:01:57.889
+one after another to add
+up these 16 numbers.
+
+42
+00:01:57.889 --&gt; 00:02:01.310
+This means that codes with
+vectorization can perform
+
+43
+00:02:01.310 --&gt; 00:02:03.440
+calculations in much less time
+
+44
+00:02:03.440 --&gt; 00:02:06.040
+than codes without
+vectorization.
+
+45
+00:02:06.040 --&gt; 00:02:09.510
+This matters more when
+you're running algorithms on
+
+46
+00:02:09.510 --&gt; 00:02:12.775
+large data sets or trying
+to train large models,
+
+47
+00:02:12.775 --&gt; 00:02:15.815
+which is often the case
+with machine learning.
+
+48
+00:02:15.815 --&gt; 00:02:19.100
+That's why being able to
+vectorize implementations
+
+49
+00:02:19.100 --&gt; 00:02:20.480
+of learning algorithms,
+
+50
+00:02:20.480 --&gt; 00:02:22.220
+has been a key step to getting
+
+51
+00:02:22.220 --&gt; 00:02:24.560
+learning algorithms
+to run efficiently,
+
+52
+00:02:24.560 --&gt; 00:02:28.010
+and therefore scale well
+to large datasets that
+
+53
+00:02:28.010 --&gt; 00:02:30.050
+many modern machine
+learning algorithms
+
+54
+00:02:30.050 --&gt; 00:02:31.960
+now have to operate on.
+
+55
+00:02:31.960 --&gt; 00:02:33.860
+Now, let's take a look at
+
+56
+00:02:33.860 --&gt; 00:02:36.560
+a concrete example of
+how this helps with
+
+57
+00:02:36.560 --&gt; 00:02:39.244
+implementing multiple
+linear regression
+
+58
+00:02:39.244 --&gt; 00:02:42.940
+and this linear regression
+with multiple input features.
+
+59
+00:02:42.940 --&gt; 00:02:45.365
+Say you have a problem with
+
+60
+00:02:45.365 --&gt; 00:02:48.935
+16 features and 16 parameters,
+
+61
+00:02:48.935 --&gt; 00:02:51.575
+w1 through w16,
+
+62
+00:02:51.575 --&gt; 00:02:54.655
+in addition to the parameter b.
+
+63
+00:02:54.655 --&gt; 00:02:58.220
+You calculate it 16
+derivative terms
+
+64
+00:02:58.220 --&gt; 00:03:01.130
+for these 16 weights and codes,
+
+65
+00:03:01.130 --&gt; 00:03:05.765
+maybe you store the values
+of w and d in two np.arrays,
+
+66
+00:03:05.765 --&gt; 00:03:10.115
+with d storing the values
+of the derivatives.
+
+67
+00:03:10.115 --&gt; 00:03:12.020
+For this example, I'm
+
+68
+00:03:12.020 --&gt; 00:03:14.540
+just going to ignore
+the parameter b.
+
+69
+00:03:14.540 --&gt; 00:03:17.360
+Now, you want to
+compute an update
+
+70
+00:03:17.360 --&gt; 00:03:20.390
+for each of these 16 parameters.
+
+71
+00:03:20.390 --&gt; 00:03:24.950
+W_j is updated to w_j
+minus the learning rate,
+
+72
+00:03:24.950 --&gt; 00:03:29.135
+say 0.1, times d_j,
+
+73
+00:03:29.135 --&gt; 00:03:33.190
+for j from 1 through 16.
+
+74
+00:03:33.190 --&gt; 00:03:36.830
+Encodes without vectorization,
+
+75
+00:03:36.830 --&gt; 00:03:39.835
+you would be doing
+something like this.
+
+76
+00:03:39.835 --&gt; 00:03:42.710
+Update w1 to be w1 minus
+
+77
+00:03:42.710 --&gt; 00:03:45.770
+the learning rate
+0.1 times d1, next,
+
+78
+00:03:45.770 --&gt; 00:03:48.740
+update w2 similarly,
+
+79
+00:03:48.740 --&gt; 00:03:52.010
+and so on through w16,
+
+80
+00:03:52.010 --&gt; 00:03:57.280
+updated as w16 minus
+0.1 times d16.
+
+81
+00:03:57.280 --&gt; 00:04:01.070
+Encodes without
+vectorization, you can use a
+
+82
+00:04:01.070 --&gt; 00:04:05.795
+for loop like this
+for j in range 016,
+
+83
+00:04:05.795 --&gt; 00:04:08.510
+that again goes from 0-15,
+
+84
+00:04:08.510 --&gt; 00:04:13.580
+said w_j equals w_j
+minus 0.1 times d_j.
+
+85
+00:04:13.580 --&gt; 00:04:17.435
+In contrast, with factorization,
+
+86
+00:04:17.435 --&gt; 00:04:19.355
+you can imagine the computer's
+
+87
+00:04:19.355 --&gt; 00:04:21.725
+parallel processing
+hardware like this.
+
+88
+00:04:21.725 --&gt; 00:04:23.840
+It takes all 16 values in
+
+89
+00:04:23.840 --&gt; 00:04:27.830
+the vector w and
+subtracts in parallel,
+
+90
+00:04:27.830 --&gt; 00:04:32.945
+0.1 times all 16 values
+in the vector d,
+
+91
+00:04:32.945 --&gt; 00:04:36.395
+and assign all 16 calculations
+
+92
+00:04:36.395 --&gt; 00:04:39.995
+back to w all at the same
+time and all in one step.
+
+93
+00:04:39.995 --&gt; 00:04:44.345
+In code, you can implement
+this as follows,
+
+94
+00:04:44.345 --&gt; 00:04:51.110
+w is assigned to w minus 0.1
+times d. Behind the scenes,
+
+95
+00:04:51.110 --&gt; 00:04:54.635
+the computer takes these
+NumPy arrays, w and d,
+
+96
+00:04:54.635 --&gt; 00:04:57.320
+and uses parallel
+processing hardware to
+
+97
+00:04:57.320 --&gt; 00:05:00.655
+carry out all 16
+computations efficiently.
+
+98
+00:05:00.655 --&gt; 00:05:02.915
+Using a vectorized
+implementation,
+
+99
+00:05:02.915 --&gt; 00:05:05.525
+you should get a much more
+efficient implementation
+
+100
+00:05:05.525 --&gt; 00:05:07.090
+of linear regression.
+
+101
+00:05:07.090 --&gt; 00:05:09.485
+Maybe the speed
+difference won't be huge
+
+102
+00:05:09.485 --&gt; 00:05:11.940
+if you have 16 features,
+
+103
+00:05:11.940 --&gt; 00:05:13.730
+but if you have thousands of
+
+104
+00:05:13.730 --&gt; 00:05:16.340
+features and perhaps very
+large training sets,
+
+105
+00:05:16.340 --&gt; 00:05:18.500
+this type of vectorized
+implementation will make
+
+106
+00:05:18.500 --&gt; 00:05:19.610
+a huge difference in
+
+107
+00:05:19.610 --&gt; 00:05:21.710
+the running time of your
+learning algorithm.
+
+108
+00:05:21.710 --&gt; 00:05:23.570
+It could be the
+difference between codes
+
+109
+00:05:23.570 --&gt; 00:05:25.450
+finishing in one or two minutes,
+
+110
+00:05:25.450 --&gt; 00:05:29.015
+versus taking many hours
+to do the same thing.
+
+111
+00:05:29.015 --&gt; 00:05:32.075
+In the optional lab that
+follows this video,
+
+112
+00:05:32.075 --&gt; 00:05:34.280
+you see an
+introduction to one of
+
+113
+00:05:34.280 --&gt; 00:05:36.860
+the most used Python libraries
+and Machine Learning,
+
+114
+00:05:36.860 --&gt; 00:05:38.390
+which we've already
+touched on in
+
+115
+00:05:38.390 --&gt; 00:05:40.705
+this video called NumPy.
+
+116
+00:05:40.705 --&gt; 00:05:43.790
+You see how they create
+vectors encode and
+
+117
+00:05:43.790 --&gt; 00:05:45.230
+these vectors or lists of
+
+118
+00:05:45.230 --&gt; 00:05:48.085
+numbers are called NumPy arrays,
+
+119
+00:05:48.085 --&gt; 00:05:51.590
+and you also see how to
+take the dot product of
+
+120
+00:05:51.590 --&gt; 00:05:56.155
+two vectors using a NumPy
+function called dot.
+
+121
+00:05:56.155 --&gt; 00:05:58.010
+You also get to see
+
+122
+00:05:58.010 --&gt; 00:06:01.370
+how vectorized code such
+as using the dot function,
+
+123
+00:06:01.370 --&gt; 00:06:03.905
+can run much faster
+than a for-loop.
+
+124
+00:06:03.905 --&gt; 00:06:06.575
+In fact, you'd get to
+time this code yourself,
+
+125
+00:06:06.575 --&gt; 00:06:09.265
+and hopefully see
+it run much faster.
+
+126
+00:06:09.265 --&gt; 00:06:11.390
+This optional lab introduces
+
+127
+00:06:11.390 --&gt; 00:06:13.880
+a fair amount of
+new NumPy syntax,
+
+128
+00:06:13.880 --&gt; 00:06:16.970
+so when you read through
+the optional lab,
+
+129
+00:06:16.970 --&gt; 00:06:18.470
+please still feel
+like you have to
+
+130
+00:06:18.470 --&gt; 00:06:20.425
+understand all the
+code right away,
+
+131
+00:06:20.425 --&gt; 00:06:23.720
+but you can save this notebook
+and use it as a reference
+
+132
+00:06:23.720 --&gt; 00:06:25.430
+to look at when
+you're working with
+
+133
+00:06:25.430 --&gt; 00:06:27.700
+data stored in NumPy arrays.
+
+134
+00:06:27.700 --&gt; 00:06:31.160
+Congrats on finishing this
+video on vectorization.
+
+135
+00:06:31.160 --&gt; 00:06:32.420
+You've learned one of the most
+
+136
+00:06:32.420 --&gt; 00:06:34.130
+important and useful techniques
+
+137
+00:06:34.130 --&gt; 00:06:36.724
+in implementing machine
+learning algorithms.
+
+138
+00:06:36.724 --&gt; 00:06:38.120
+In the next video,
+
+139
+00:06:38.120 --&gt; 00:06:39.710
+we'll put the math of
+
+140
+00:06:39.710 --&gt; 00:06:43.430
+multiple linear regression
+together with vectorization,
+
+141
+00:06:43.430 --&gt; 00:06:46.280
+so that you will influence
+gradient descent for
+
+142
+00:06:46.280 --&gt; 00:06:49.420
+multiple linear regression
+with vectorization.
+
+143
+00:06:49.420 --&gt; 00:06:52.210
+Let's go on to the next video.

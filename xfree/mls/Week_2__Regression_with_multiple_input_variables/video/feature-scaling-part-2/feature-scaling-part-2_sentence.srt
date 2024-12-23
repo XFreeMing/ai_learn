@@ -1,0 +1,188 @@
+1
+00:00:01,130 --> 00:00:11,865
+Let's look at how you can implement feature scaling, to take features that take on very different ranges of values and skill them to have comparable ranges of values to each other.
+
+2
+00:00:11,865 --> 00:00:28,545
+How do you actually scale features? Well, if x_1 ranges from 3-2,000, one way to get a scale version of x_1 is to take each original x1_ value and divide by 2,000, the maximum of the range.
+
+3
+00:00:28,545 --> 00:00:34,140
+The scale x_1 will range from 0.15 up to one.
+
+4
+00:00:34,140 --> 00:00:46,880
+Similarly, since x_2 ranges from 0-5, you can calculate a scale version of x_2 by taking each original x_2 and dividing by five, which is again the maximum.
+
+5
+00:00:46,880 --> 00:00:51,270
+So the scale is x_2 will now range from 0-1.
+
+6
+00:00:51,740 --> 00:00:58,060
+If you plot the scale to x_1 and x_2 on a graph, it might look like this.
+
+7
+00:00:58,060 --> 00:01:04,700
+In addition to dividing by the maximum, you can also do what's called mean normalization.
+
+8
+00:01:04,700 --> 00:01:13,105
+What this looks like is, you start with the original features and then you re-scale them so that both of them are centered around zero.
+
+9
+00:01:13,105 --> 00:01:24,910
+Whereas before they only had values greater than zero, now they have both negative and positive values that may be usually between negative one and plus one.
+
+10
+00:01:24,910 --> 00:01:39,425
+To calculate the mean normalization of x_1, first find the average, also called the mean of x_1 on your training set, and let's call this mean Mu_1, with this being the Greek alphabets Mu.
+
+11
+00:01:39,425 --> 00:01:46,400
+For example, you may find that the average of feature 1, Mu_1 is 600 square feet.
+
+12
+00:01:46,400 --> 00:02:10,570
+Let's take each x_1, subtract the mean Mu_1, and then let's divide by the difference 2,000 minus 300, where 2,000 is the maximum and 300 the minimum, and if you do this, you get the normalized x_1 to range from negative 0.18-0.82.
+
+13
+00:02:10,570 --> 00:02:16,925
+Similarly, to mean normalized x_2, you can calculate the average of feature 2.
+
+14
+00:02:16,925 --> 00:02:20,350
+For instance, Mu_2 may be 2.3.
+
+15
+00:02:20,350 --> 00:02:27,960
+Then you can take each x_2, subtract Mu_2 and divide by 5 minus 0.
+
+16
+00:02:27,960 --> 00:02:32,280
+Again, the max 5 minus the mean, which is 0.
+
+17
+00:02:32,280 --> 00:02:41,155
+The mean normalized x_2 now ranges from negative 0.46-0 54.
+
+18
+00:02:41,155 --> 00:02:47,990
+If you plot the training data using the mean normalized x_1 and x_2, it might look like this.
+
+19
+00:02:47,990 --> 00:02:54,010
+There's one last common re-scaling method call Z-score normalization.
+
+20
+00:02:54,010 --> 00:03:00,530
+To implement Z-score normalization, you need to calculate something called the standard deviation of each feature.
+
+21
+00:03:00,530 --> 00:03:06,130
+If you don't know what the standard deviation is, don't worry about it, you won't need to know it for this course.
+
+22
+00:03:06,130 --> 00:03:17,495
+Or if you've heard of the normal distribution or the bell-shaped curve, sometimes also called the Gaussian distribution, this is what the standard deviation for the normal distribution looks like.
+
+23
+00:03:17,495 --> 00:03:20,785
+But if you haven't heard of this, you don't need to worry about that either.
+
+24
+00:03:20,785 --> 00:03:38,135
+But if you do know what is the standard deviation, then to implement a Z-score normalization, you first calculate the mean Mu, as well as the standard deviation, which is often denoted by the lowercase Greek alphabet Sigma of each feature.
+
+25
+00:03:38,135 --> 00:03:59,620
+For instance, maybe feature 1 has a standard deviation of 450 and mean 600, then to Z-score normalize x_1, take each x_1, subtract Mu_1, and then divide by the standard deviation, which I'm going to denote as Sigma 1.
+
+26
+00:03:59,620 --> 00:04:08,650
+What you may find is that the Z-score normalized x_1 now ranges from negative 0.67-3.1.
+
+27
+00:04:09,650 --> 00:04:36,060
+Similarly, if you calculate the second features standard deviation to be 1.4 and mean to be 2.3, then you can compute x_2 minus Mu_2 divided by Sigma_2, and in this case, the Z-score normalized by x_2 might now range from negative 1.6-1.9.
+
+28
+00:04:36,060 --> 00:04:42,570
+If you plot the training data on the normalized x_1 and x_2 on a graph, it might look like this.
+
+29
+00:04:42,650 --> 00:04:57,530
+As a rule of thumb, when performing feature scaling, you might want to aim for getting the features to range from maybe anywhere around negative one to somewhere around plus one for each feature x.
+
+30
+00:04:57,530 --> 00:05:02,930
+But these values, negative one and plus one can be a little bit loose.
+
+31
+00:05:02,930 --> 00:05:12,440
+If the features range from negative three to plus three or negative 0.3 to plus 0.3, all of these are completely okay.
+
+32
+00:05:12,440 --> 00:05:18,785
+If you have a feature x_1 that winds up being between zero and three, that's not a problem.
+
+33
+00:05:18,785 --> 00:05:24,355
+You can re-scale it if you want, but if you don't re-scale it, it should work okay too.
+
+34
+00:05:24,355 --> 00:05:38,500
+Or if you have a different feature, x_2, whose values are between negative 2 and plus 0.5, again, that's okay, no harm re-scaling it, but it might be okay if you leave it alone as well.
+
+35
+00:05:38,500 --> 00:05:51,760
+But if another feature, like x_3 here, ranges from negative 100 to plus 100, then this takes on a very different range of values, say something from around negative one to plus one.
+
+36
+00:05:51,760 --> 00:06:01,135
+You're probably better off re-scaling this feature x_3 so that it ranges from something closer to negative one to plus one.
+
+37
+00:06:01,135 --> 00:06:14,680
+Similarly, if you have a feature x_4 that takes on really small values, say between negative 0.001 and plus 0.001, then these values are so small.
+
+38
+00:06:14,680 --> 00:06:18,205
+That means you may want to re-scale it as well.
+
+39
+00:06:18,205 --> 00:06:44,140
+Finally, what if your feature x_5, such as measurements of a hospital patients by the temperature ranges from 98.6-105 degrees Fahrenheit? In this case, these values are around 100, which is actually pretty large compared to other scale features, and this will actually cause gradient descent to run more slowly.
+
+40
+00:06:44,140 --> 00:06:47,960
+In this case, feature re-scaling will likely help.
+
+41
+00:06:47,960 --> 00:06:52,700
+There's almost never any harm to carrying out feature re-scaling.
+
+42
+00:06:52,700 --> 00:06:56,245
+When in doubt, I encourage you to just carry it out.
+
+43
+00:06:56,245 --> 00:06:58,605
+That's it for feature scaling.
+
+44
+00:06:58,605 --> 00:07:04,805
+With this little technique, you'll often be able to get gradient descent to run much faster.
+
+45
+00:07:04,805 --> 00:07:07,480
+That's features scaling.
+
+46
+00:07:07,480 --> 00:07:19,975
+With or without feature scaling, when you run gradient descent, how can you know, how can you check if gradient descent is really working? If it is finding you the global minimum or something close to it.
+
+47
+00:07:19,975 --> 00:07:34,440
+In the next video, let's take a look at how to recognize if gradient descent is converging, and then in the video after that, this will lead to discussion of how to choose a good learning rate for gradient descent.
+

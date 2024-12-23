@@ -1,0 +1,160 @@
+1
+00:00:01,280 --> 00:00:06,735
+Your learning algorithm will run much better with an appropriate choice of learning rate.
+
+2
+00:00:06,735 --> 00:00:12,195
+If it's too small, it will run very slowly and if it is too large, it may not even converge.
+
+3
+00:00:12,195 --> 00:00:16,290
+Let's take a look at how you can choose a good learning rate for your model.
+
+4
+00:00:16,290 --> 00:00:31,245
+Concretely, if you plot the cost for a number of iterations and notice that the costs sometimes goes up and sometimes goes down, you should take that as a clear sign that gradient descent is not working properly.
+
+5
+00:00:31,245 --> 00:00:33,885
+This could mean that there's a bug in the code.
+
+6
+00:00:33,885 --> 00:00:37,875
+Or sometimes it could mean that your learning rate is too large.
+
+7
+00:00:37,875 --> 00:00:41,670
+So here's an illustration of what might be happening.
+
+8
+00:00:41,670 --> 00:01:08,055
+Here the vertical axis is a cost function J, and the horizontal axis represents a parameter like maybe w_1 and if the learning rate is too big, then if you start off here, your update step may overshoot the minimum and end up here, and in the next update step here, your gain overshooting so you end up here and so on.
+
+9
+00:01:08,055 --> 00:01:12,445
+That's why the cost can sometimes go up instead of decreasing.
+
+10
+00:01:12,445 --> 00:01:15,830
+To fix this, you can use a smaller learning rate.
+
+11
+00:01:15,830 --> 00:01:25,795
+Then your updates may start here and go down a little bit and down a bit, and we'll hopefully consistently decrease until it reaches the global minimum.
+
+12
+00:01:25,795 --> 00:01:33,515
+Sometimes you may see that the cost consistently increases after each iteration, like this curve here.
+
+13
+00:01:33,515 --> 00:01:41,150
+This is also likely due to a learning rate that is too large, and it could be addressed by choosing a smaller learning rate.
+
+14
+00:01:41,150 --> 00:01:46,690
+But learning rates like this could also be a sign of a possible broken code.
+
+15
+00:01:46,690 --> 00:02:01,690
+For example, if I wrote my code so that w_1 gets updated as w_1 plus Alpha times this derivative term, this could result in the cost consistently increasing at each iteration.
+
+16
+00:02:01,690 --> 00:02:09,545
+This is because having the derivative term moves your cost J further from the global minimum instead of closer.
+
+17
+00:02:09,545 --> 00:02:21,290
+So remember, you want to use in minus sign, so the code should be updated w_1 updated by w_1 minus Alpha times the derivative term.
+
+18
+00:02:21,290 --> 00:02:32,995
+One debugging tip for a correct implementation of gradient descent is that with a small enough learning rate, the cost function should decrease on every single iteration.
+
+19
+00:02:32,995 --> 00:02:50,965
+So if gradient descent isn't working, one thing I often do and I hope you find this tip useful too, one thing I'll often do is just set Alpha to be a very small number and see if that causes the cost to decrease on every iteration.
+
+20
+00:02:50,965 --> 00:03:02,900
+If even with Alpha set to a very small number, J doesn't decrease on every single iteration, but instead sometimes increases, then that usually means there's a bug somewhere in the code.
+
+21
+00:03:02,900 --> 00:03:17,005
+Note that setting Alpha to be really small is meant here as a debugging step and a very small value of Alpha is not going to be the most efficient choice for actually training your learning algorithm.
+
+22
+00:03:17,005 --> 00:03:25,565
+One important trade-off is that if your learning rate is too small, then gradient descents can take a lot of iterations to converge.
+
+23
+00:03:25,565 --> 00:03:32,540
+So when I am running gradient descent, I will usually try a range of values for the learning rate Alpha.
+
+24
+00:03:32,540 --> 00:03:44,765
+I may start by trying a learning rate of 0.001 and I may also try learning rate as 10 times as large say 0.01 and 0.1 and so on.
+
+25
+00:03:44,765 --> 00:04:07,025
+For each choice of Alpha, you might run gradient descent just for a handful of iterations and plot the cost function J as a function of the number of iterations and after trying a few different values, you might then pick the value of Alpha that seems to decrease the learning rate rapidly, but also consistently.
+
+26
+00:04:07,025 --> 00:04:12,140
+In fact, what I actually do is try a range of values like this.
+
+27
+00:04:12,140 --> 00:04:19,730
+After trying 0.001, I'll then increase the learning rate threefold to 0.003.
+
+28
+00:04:19,730 --> 00:04:27,800
+After that, I'll try 0.01, which is again about three times as large as 0.003.
+
+29
+00:04:27,800 --> 00:04:36,580
+So these are roughly trying out gradient descents with each value of Alpha being roughly three times bigger than the previous value.
+
+30
+00:04:36,580 --> 00:04:45,290
+What I'll do is try a range of values until I found the value of that's too small and then also make sure I've found a value that's too large.
+
+31
+00:04:45,290 --> 00:04:55,420
+I'll slowly try to pick the largest possible learning rate, or just something slightly smaller than the largest reasonable value that I found.
+
+32
+00:04:55,420 --> 00:05:00,125
+When I do that, it usually gives me a good learning rate for my model.
+
+33
+00:05:00,125 --> 00:05:08,930
+I hope this technique too will be useful for you to choose a good learning rate for your implementation of gradient descent.
+
+34
+00:05:08,930 --> 00:05:23,890
+In the upcoming optional lab you can also take a look at how feature scaling is done in code and also see how different choices of the learning rate Alpha can lead to either better or worse training of your model.
+
+35
+00:05:23,890 --> 00:05:30,320
+I hope you have fun playing with the value of Alpha and seeing the outcomes of different choices of Alpha.
+
+36
+00:05:30,320 --> 00:05:39,010
+Please take a look and run the code in the optional lab to gain a deeper intuition about feature scaling, as well as the learning rate Alpha.
+
+37
+00:05:39,010 --> 00:05:50,080
+Choosing learning rates is an important part of training many learning algorithms and I hope that this video gives you intuition about different choices and how to pick a good value for Alpha.
+
+38
+00:05:50,080 --> 00:05:56,510
+Now, there are couple more ideas that you can use to make multiple linear regression much more powerful.
+
+39
+00:05:56,510 --> 00:06:03,775
+That is choosing custom features, which will also allow you to fit curves, not just a straight line to your data.
+
+40
+00:06:03,775 --> 00:06:06,930
+Let's take a look at that in the next video.
+

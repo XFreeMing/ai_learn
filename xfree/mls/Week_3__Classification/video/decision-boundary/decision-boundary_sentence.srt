@@ -1,0 +1,272 @@
+1
+00:00:00,500 --> 00:00:05,535
+In the last video, you learned about the logistic regression model.
+
+2
+00:00:05,535 --> 00:00:13,470
+Now, let's take a look at the decision boundary to get a better sense of how logistic regression is computing these predictions.
+
+3
+00:00:13,470 --> 00:00:20,445
+To recap, here's how the logistic regression models outputs are computed in two steps.
+
+4
+00:00:20,445 --> 00:00:26,010
+In the first step, you compute z as w.x plus b.
+
+5
+00:00:26,010 --> 00:00:31,155
+Then you apply the Sigmoid function g to this value z.
+
+6
+00:00:31,155 --> 00:00:34,915
+Here again, is the formula for the Sigmoid function.
+
+7
+00:00:34,915 --> 00:00:52,560
+Another way to write this is we can say f of x is equal to g, the Sigmoid function, also called the logistic function, applied to w.x plus b, where this is of course, the value of z.
+
+8
+00:00:52,560 --> 00:01:11,435
+If you take the definition of the Sigmoid function and plug in the definition of z, then you find that f of x is equal to this formula over here, 1 over 1 plus e to the negative z, where z is wx plus b.
+
+9
+00:01:11,435 --> 00:01:22,555
+You may remember we said in the previous video that we interpret this as the probability that y is equal to 1 given x and with parameters w and b.
+
+10
+00:01:22,555 --> 00:01:27,415
+This is going to be a number like maybe a 0.7 or 0.3.
+
+11
+00:01:27,415 --> 00:01:31,125
+Now, what if you want to learn the algorithm to predict.
+
+12
+00:01:31,125 --> 00:01:51,625
+Is the value of y going to be zero or one? Well, one thing you might do is set a threshold above which you predict y is one, or you set y hat to prediction to be equal to one and below which you might say y hat, my prediction is going to be equal to zero.
+
+13
+00:01:51,625 --> 00:02:02,875
+A common choice would be to pick a threshold of 0.5 so that if f of x is greater than or equal to 0.5, then predict y is one.
+
+14
+00:02:02,875 --> 00:02:15,785
+We write that prediction as y hat equals 1, or if f of x is less than 0.5, then predict y is 0, or in other words, the prediction y hat is equal to 0.
+
+15
+00:02:15,785 --> 00:02:19,775
+Now, let's dive deeper into when the model would predict one.
+
+16
+00:02:19,775 --> 00:02:25,070
+In other words, when is f of x greater than or equal to 0.5.
+
+17
+00:02:25,070 --> 00:02:30,550
+We'll recall that f of x is just equal to g of z.
+
+18
+00:02:30,550 --> 00:02:38,425
+So f is greater than or equal to 0.5 whenever g of z is greater than or equal to 0.5.
+
+19
+00:02:38,425 --> 00:02:47,070
+But when is g of z greater than or equal to 0.5? Well, here's a Sigmoid function over here.
+
+20
+00:02:47,070 --> 00:02:56,785
+So g of z is greater than or equal to 0.5 whenever z is greater than or equal to 0.
+
+21
+00:02:56,785 --> 00:03:02,630
+That is whenever z is on the right half of this axis.
+
+22
+00:03:02,630 --> 00:03:19,765
+Finally, when is z greater than or equal to zero? Well, z is equal to w.x plus b, so z is greater than or equal to zero whenever w.x plus b is greater than or equal to zero.
+
+23
+00:03:19,765 --> 00:03:32,905
+To recap, what you've seen here is that the model predicts 1 whenever w.x plus b is greater than or equal to 0.
+
+24
+00:03:32,905 --> 00:03:42,960
+Conversely, when w.x plus b is less than zero, the algorithm predicts y is 0.
+
+25
+00:03:42,960 --> 00:03:48,755
+Given this, let's now visualize how the model makes predictions.
+
+26
+00:03:48,755 --> 00:03:58,615
+I'm going to take an example of a classification problem where you have two features, x1 and x2 instead of just one feature.
+
+27
+00:03:58,615 --> 00:04:08,215
+Here's a training set where the little red crosses denote the positive examples and the little blue circles denote negative examples.
+
+28
+00:04:08,215 --> 00:04:18,640
+The red crosses corresponds to y equals 1, and the blue circles correspond to y equals 0.
+
+29
+00:04:18,640 --> 00:04:37,885
+The logistic regression model will make predictions using this function f of x equals g of z, where z is now this expression over here, w1x1 plus w2x2 plus b, because we have two features x1 and x2.
+
+30
+00:04:37,885 --> 00:04:50,585
+Let's just say for this example that the value of the parameters are w1 equals 1, w2 equals 1, and b equals negative 3.
+
+31
+00:04:50,585 --> 00:04:55,385
+Let's now take a look at how logistic regression makes predictions.
+
+32
+00:04:55,385 --> 00:05:04,105
+In particular, let's figure out when wx plus b is greater than equal to 0 and when wx plus b is less than 0.
+
+33
+00:05:04,105 --> 00:05:13,400
+To figure that out, there's a very interesting line to look at, which is when wx plus b is exactly equal to 0.
+
+34
+00:05:13,400 --> 00:05:26,845
+It turns out that this line is also called the decision boundary because that's the line where you're just almost neutral about whether y is 0 or y is 1.
+
+35
+00:05:26,845 --> 00:05:43,210
+Now, for the values of the parameters w_1, w_2, and b that we had written down above, this decision boundary is just x_1 plus x_2 minus 3.
+
+36
+00:05:43,210 --> 00:06:00,940
+When is x_1 plus x_2 minus 3 equal to 0? Well, that will correspond to the line x_1 plus x_2 equals 3, and that is this line shown over here.
+
+37
+00:06:01,250 --> 00:06:18,815
+This line turns out to be the decision boundary, where if the features x are to the right of this line, logistic regression would predict 1 and to the left of this line, logistic regression with predicts 0.
+
+38
+00:06:18,815 --> 00:06:32,460
+In other words, what we have just visualize is the decision boundary for logistic regression when the parameters w_1, w_2, and b are 1,1 and negative 3.
+
+39
+00:06:32,460 --> 00:06:39,045
+Of course, if you had a different choice of the parameters, the decision boundary would be a different line.
+
+40
+00:06:39,045 --> 00:06:45,635
+Now let's look at a more complex example where the decision boundary is no longer a straight line.
+
+41
+00:06:45,635 --> 00:06:56,780
+As before, crosses denote the class y equals 1, and the little circles denote the class y equals 0.
+
+42
+00:06:56,780 --> 00:07:07,150
+Earlier last week, you saw how to use polynomials in linear regression, and you can do the same in logistic regression.
+
+43
+00:07:07,250 --> 00:07:16,525
+This set z to be w_1, x_1 squared plus w_2, x_2 squared plus b.
+
+44
+00:07:16,525 --> 00:07:21,315
+With this choice of features, polynomial features into a logistic regression.
+
+45
+00:07:21,315 --> 00:07:26,905
+F of x, which equals g of z, is now g of this expression over here.
+
+46
+00:07:26,905 --> 00:07:35,900
+Let's say that we ended up choosing w_1 and w_2 to be 1 and b to be negative 1.
+
+47
+00:07:35,940 --> 00:07:43,400
+Z is equal to 1 times x_1 squared plus 1 times x_2 squared minus 1.
+
+48
+00:07:43,400 --> 00:07:50,510
+The decision boundary, as before, will correspond to when z is equal to 0.
+
+49
+00:07:50,510 --> 00:07:57,255
+This expression will be equal to 0 when x_1 squared plus x_2 squared is equal to 1.
+
+50
+00:07:57,255 --> 00:08:08,495
+If you plot on the diagram on the left, the curve corresponding to x_1 squared plus x_2 squared equals 1, this turns out to be the circle.
+
+51
+00:08:08,495 --> 00:08:19,050
+When x_1 squared plus x_2 squared is greater than or equal to 1, that's this area outside the circle and that's when you predict y to be 1.
+
+52
+00:08:19,050 --> 00:08:31,505
+Conversely, when x_1 squared plus x_2 squared is less than 1, that's this area inside the circle and that's when you predict y to be 0.
+
+53
+00:08:31,505 --> 00:08:42,080
+Can we come up with even more complex decision boundaries than these? Yes, you can. You can do so by having even higher-order polynomial terms.
+
+54
+00:08:42,080 --> 00:08:53,185
+Say z is w_1, x_1 plus w_2, x_2 plus w_3, x_1 squared plus w_4, x_1, x_2 plus w_5, x_2 squared.
+
+55
+00:08:53,185 --> 00:08:57,820
+Then it's possible you can get even more complex decision boundaries.
+
+56
+00:08:57,820 --> 00:09:08,960
+The model can define decision boundaries, such as this example, an ellipse just like this, or with a different choice of the parameters.
+
+57
+00:09:08,960 --> 00:09:15,590
+You can even get more complex decision boundaries, which can look like functions that maybe looks like that.
+
+58
+00:09:15,590 --> 00:09:23,080
+So this is an example of an even more complex decision boundary than the ones we've seen previously.
+
+59
+00:09:23,080 --> 00:09:34,430
+This implementation of logistic regression will predict y equals 1 inside this shape and outside the shape will predict y equals 0.
+
+60
+00:09:34,430 --> 00:09:40,295
+With these polynomial features, you can get very complex decision boundaries.
+
+61
+00:09:40,295 --> 00:09:45,270
+In other words, logistic regression can learn to fit pretty complex data.
+
+62
+00:09:45,270 --> 00:10:01,040
+Although if you were to not include any of these higher-order polynomials, so if the only features you use are x_1, x_2, x_3, and so on, then the decision boundary for logistic regression will always be linear, will always be a straight line.
+
+63
+00:10:01,040 --> 00:10:08,525
+In the upcoming optional lab, you also get to see the code implementation of the decision boundary.
+
+64
+00:10:08,525 --> 00:10:15,430
+In the example in the lab, there will be two features so you can see that decision boundary as a line.
+
+65
+00:10:15,430 --> 00:10:23,360
+With this visualization, I hope that you now have a sense of the range of possible models you can get with logistic regression.
+
+66
+00:10:23,360 --> 00:10:32,300
+Now that you've seen what f of x can potentially compute, let's take a look at how you can actually train a logistic regression model.
+
+67
+00:10:32,300 --> 00:10:39,845
+We'll start by looking at the cost function for logistic regression and after that, figured out how to apply gradient descent to it.
+
+68
+00:10:39,845 --> 00:10:42,490
+Let's go on to the next video.
+

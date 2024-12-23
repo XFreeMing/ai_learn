@@ -1,0 +1,160 @@
+1
+00:00:00,680 --> 00:00:11,565
+When running gradient descent, how can you tell if it is converging? That is, whether it's helping you to find parameters close to the global minimum of the cost function.
+
+2
+00:00:11,565 --> 00:00:22,170
+By learning to recognize what a well-running implementation of gradient descent looks like, we will also, in a later video, be better able to choose a good learning rate Alpha.
+
+3
+00:00:22,170 --> 00:00:24,735
+Let's take a look.
+
+4
+00:00:24,735 --> 00:00:26,565
+As a reminder, here's the gradient descent rule.
+
+5
+00:00:26,565 --> 00:00:32,110
+One of the key choices is the choice of the learning rate Alpha.
+
+6
+00:00:32,110 --> 00:00:37,580
+Here's something that I often do to make sure that gradient descent is working well.
+
+7
+00:00:37,580 --> 00:00:46,075
+Recall that the job of gradient descent is to find parameters w and b that hopefully minimize the cost function J.
+
+8
+00:00:46,075 --> 00:00:58,550
+What I'll often do is plot the cost function J, which is calculated on the training set, and I plot the value of J at each iteration of gradient descent.
+
+9
+00:00:58,550 --> 00:01:07,270
+Remember that each iteration means after each simultaneous update of the parameters w and b.
+
+10
+00:01:07,270 --> 00:01:16,720
+In this plot, the horizontal axis is the number of iterations of gradient descent that you've run so far.
+
+11
+00:01:16,720 --> 00:01:20,055
+You may get a curve that looks like this.
+
+12
+00:01:20,055 --> 00:01:29,830
+Notice that the horizontal axis is the number of iterations of gradient descent and not a parameter like w or b.
+
+13
+00:01:29,830 --> 00:01:42,125
+This differs from previous graphs you've seen where the vertical axis was cost J and the horizontal axis was a single parameter like w or b.
+
+14
+00:01:42,125 --> 00:01:46,130
+This curve is also called a learning curve.
+
+15
+00:01:46,130 --> 00:01:55,510
+Note that there are a few different types of learning curves used in machine learning, and you see some of the types later in this course as well.
+
+16
+00:01:55,510 --> 00:02:12,495
+Concretely, if you look here at this point on the curve, this means that after you've run gradient descent for 100 iterations, meaning 100 simultaneous updates of the parameters, you have some learned values for w and b.
+
+17
+00:02:12,495 --> 00:02:25,160
+If you compute the cost J, w, b for those values of w and b, the ones you got after 100 iterations, you get this value for the cost J.
+
+18
+00:02:25,160 --> 00:02:29,665
+That is this point on the vertical axis.
+
+19
+00:02:29,665 --> 00:02:39,695
+This point here corresponds to the value of J for the parameters that you got after 200 iterations of gradient descent.
+
+20
+00:02:39,695 --> 00:02:47,615
+Looking at this graph helps you to see how your cost J changes after each iteration of gradient descent.
+
+21
+00:02:47,615 --> 00:02:54,604
+If gradient descent is working properly, then the cost J should decrease after every single iteration.
+
+22
+00:02:54,604 --> 00:03:07,540
+If J ever increases after one iteration, that means either Alpha is chosen poorly, and it usually means Alpha is too large, or there could be a bug in the code.
+
+23
+00:03:07,540 --> 00:03:22,690
+Another useful thing that this part can tell you is that if you look at this curve, by the time you reach maybe 300 iterations also, the cost J is leveling off and is no longer decreasing much.
+
+24
+00:03:22,690 --> 00:03:27,740
+By 400 iterations, it looks like the curve has flattened out.
+
+25
+00:03:27,740 --> 00:03:36,550
+This means that gradient descent has more or less converged because the curve is no longer decreasing.
+
+26
+00:03:36,550 --> 00:03:44,005
+Looking at this learning curve, you can try to spot whether or not gradient descent is converging.
+
+27
+00:03:44,005 --> 00:03:52,175
+By the way, the number of iterations that gradient descent takes a conversion can vary a lot between different applications.
+
+28
+00:03:52,175 --> 00:03:56,584
+In one application, it may converge after just 30 iterations.
+
+29
+00:03:56,584 --> 00:04:02,180
+For a different application, it could take 1,000 or 100,000 iterations.
+
+30
+00:04:02,180 --> 00:04:15,185
+It turns out to be very difficult to tell in advance how many iterations gradient descent needs to converge, which is why you can create a graph like this, a learning curve.
+
+31
+00:04:15,185 --> 00:04:20,120
+Try to find out when you can start training your particular model.
+
+32
+00:04:20,120 --> 00:04:28,250
+Another way to decide when your model is done training is with an automatic convergence test.
+
+33
+00:04:29,980 --> 00:04:33,805
+Here is the Greek alphabet epsilon.
+
+34
+00:04:33,805 --> 00:04:43,220
+Let's let epsilon be a variable representing a small number, such as 0.001 or 10^-3.
+
+35
+00:04:43,220 --> 00:04:56,105
+If the cost J decreases by less than this number epsilon on one iteration, then you're likely on this flattened part of the curve that you see on the left and you can declare convergence.
+
+36
+00:04:56,105 --> 00:05:10,195
+Remember, convergence, hopefully in the case that you found parameters w and b that are close to the minimum possible value of J. I usually find that choosing the right threshold epsilon is pretty difficult.
+
+37
+00:05:10,195 --> 00:05:16,720
+I actually tend to look at graphs like this one on the left, rather than rely on automatic convergence tests.
+
+38
+00:05:16,720 --> 00:05:26,635
+Looking at the solid figure can tell you, I'll give you at some advanced warning if maybe gradient descent is not working correctly as well.
+
+39
+00:05:26,635 --> 00:05:32,450
+You've now seen what the learning curve should look like when gradient descent is running well.
+
+40
+00:05:32,450 --> 00:05:39,810
+Let's take these insights and in the next video, take a look at how to choose an appropriate learning rate.
+

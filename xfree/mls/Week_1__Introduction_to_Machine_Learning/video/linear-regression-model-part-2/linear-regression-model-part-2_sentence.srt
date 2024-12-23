@@ -1,0 +1,184 @@
+1
+00:00:00,770 --> 00:00:06,390
+Let's look in this video at the process of how supervised learning works.
+
+2
+00:00:06,390 --> 00:00:14,820
+Supervised learning algorithm will input a dataset and then what exactly does it do and what does it output? Let's find out in this video.
+
+3
+00:00:14,820 --> 00:00:25,980
+Recall that a training set in supervised learning includes both the input features, such as the size of the house and also the output targets, such as the price of the house.
+
+4
+00:00:25,980 --> 00:00:30,360
+The output targets are the right answers to the model we'll learn from.
+
+5
+00:00:30,360 --> 00:00:39,290
+To train the model, you feed the training set, both the input features and the output targets to your learning algorithm.
+
+6
+00:00:39,290 --> 00:00:44,645
+Then your supervised learning algorithm will produce some function.
+
+7
+00:00:44,645 --> 00:00:49,940
+We'll write this function as lowercase f, where f stands for function.
+
+8
+00:00:49,940 --> 00:00:58,105
+Historically, this function used to be called a hypothesis, but I'm just going to call it a function f in this class.
+
+9
+00:00:58,105 --> 00:01:17,620
+The job with f is to take a new input x and output and estimate or a prediction, which I'm going to call y-hat, and it's written like the variable y with this little hat symbol on top.
+
+10
+00:01:17,620 --> 00:01:26,965
+In machine learning, the convention is that y-hat is the estimate or the prediction for y.
+
+11
+00:01:26,965 --> 00:01:31,225
+The function f is called the model.
+
+12
+00:01:31,225 --> 00:01:40,405
+X is called the input or the input feature, and the output of the model is the prediction, y-hat.
+
+13
+00:01:40,405 --> 00:01:45,110
+The model's prediction is the estimated value of y.
+
+14
+00:01:45,110 --> 00:01:55,320
+When the symbol is just the letter y, then that refers to the target, which is the actual true value in the training set.
+
+15
+00:01:55,320 --> 00:01:58,395
+In contrast, y-hat is an estimate.
+
+16
+00:01:58,395 --> 00:02:01,430
+It may or may not be the actual true value.
+
+17
+00:02:01,430 --> 00:02:08,815
+Well, if you're helping your client to sell the house, well, the true price of the house is unknown until they sell it.
+
+18
+00:02:08,815 --> 00:02:18,665
+Your model f, given the size, outputs the price which is the estimator, that is the prediction of what the true price will be.
+
+19
+00:02:18,665 --> 00:02:39,430
+Now, when we design a learning algorithm, a key question is, how are we going to represent the function f? Or in other words, what is the math formula we're going to use to compute f? For now, let's stick with f being a straight line.
+
+20
+00:02:39,430 --> 00:02:54,765
+You're function can be written as f_w, b of x equals, I'm going to use w times x plus b. I'll define w and b soon.
+
+21
+00:02:54,765 --> 00:03:08,610
+But for now, just know that w and b are numbers, and the values chosen for w and b will determine the prediction y-hat based on the input feature x.
+
+22
+00:03:08,610 --> 00:03:23,395
+This f_w b of x means f is a function that takes x as input, and depending on the values of w and b, f will output some value of a prediction y-hat.
+
+23
+00:03:23,395 --> 00:03:35,435
+As an alternative to writing this, f_w, b of x, I'll sometimes just write f of x without explicitly including w and b into subscript.
+
+24
+00:03:35,435 --> 00:03:42,235
+Is just a simpler notation that means exactly the same thing as f_w b of x.
+
+25
+00:03:42,235 --> 00:03:53,470
+Let's plot the training set on the graph where the input feature x is on the horizontal axis and the output target y is on the vertical axis.
+
+26
+00:03:53,470 --> 00:04:01,910
+Remember, the algorithm learns from this data and generates the best-fit line like maybe this one here.
+
+27
+00:04:01,910 --> 00:04:11,420
+This straight line is the linear function f_w b of x equals w times x plus b.
+
+28
+00:04:11,420 --> 00:04:20,390
+Or more simply, we can drop w and b and just write f of x equals wx plus b.
+
+29
+00:04:20,390 --> 00:04:28,545
+Here's what this function is doing, it's making predictions for the value of y using a streamline function of x.
+
+30
+00:04:28,545 --> 00:04:47,295
+You may ask, why are we choosing a linear function, where linear function is just a fancy term for a straight line instead of some non-linear function like a curve or a parabola? Well, sometimes you want to fit more complex non-linear functions as well, like a curve like this.
+
+31
+00:04:47,295 --> 00:04:59,720
+But since this linear function is relatively simple and easy to work with, let's use a line as a foundation that will eventually help you to get to more complex models that are non-linear.
+
+32
+00:04:59,720 --> 00:05:04,315
+This particular model has a name, it's called linear regression.
+
+33
+00:05:04,315 --> 00:05:16,645
+More specifically, this is linear regression with one variable, where the phrase one variable means that there's a single input variable or feature x, namely the size of the house.
+
+34
+00:05:16,645 --> 00:05:29,470
+Another name for a linear model with one input variable is univariate linear regression, where uni means one in Latin, and where variate means variable.
+
+35
+00:05:29,470 --> 00:05:34,275
+Univariate is just a fancy way of saying one variable.
+
+36
+00:05:34,275 --> 00:05:48,845
+In a later video, you'll also see a variation of regression where you'll want to make a prediction based not just on the size of a house, but on a bunch of other things that you may know about the house such as number of bedrooms and other features.
+
+37
+00:05:48,845 --> 00:05:53,485
+By the way, when you're done with this video, there is another optional lab.
+
+38
+00:05:53,485 --> 00:05:55,435
+You don't need to write any code.
+
+39
+00:05:55,435 --> 00:05:58,535
+Just review it, run the code and see what it does.
+
+40
+00:05:58,535 --> 00:06:03,175
+That will show you how to define in Python a straight line function.
+
+41
+00:06:03,175 --> 00:06:09,890
+The lab will let you choose the values of w and b to try to fit the training data.
+
+42
+00:06:09,890 --> 00:06:16,940
+You don't have to do the lab if you don't want to, but I hope you play with it when you're done watching this video.
+
+43
+00:06:16,940 --> 00:06:18,965
+That's linear regression.
+
+44
+00:06:18,965 --> 00:06:24,995
+In order for you to make this work, one of the most important things you have to do is construct a cost function.
+
+45
+00:06:24,995 --> 00:06:37,510
+The idea of a cost function is one of the most universal and important ideas in machine learning, and is used in both linear regression and in training many of the most advanced AI models in the world.
+
+46
+00:06:37,510 --> 00:06:43,920
+Let's go on to the next video and take a look at how you can construct a cost function.
+

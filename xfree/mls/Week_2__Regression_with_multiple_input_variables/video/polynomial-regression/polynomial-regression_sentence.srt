@@ -1,0 +1,164 @@
+1
+00:00:02,880 --> 00:00:07,070
+So far we've just been fitting straight lines to our data.
+
+2
+00:00:07,070 --> 00:00:18,780
+Let's take the ideas of multiple linear regression and feature engineering to come up with a new algorithm called polynomial regression, which will let you fit curves, non-linear functions, to your data.
+
+3
+00:00:18,780 --> 00:00:25,915
+Let's say you have a housing data-set that looks like this, where feature x is the size in square feet.
+
+4
+00:00:25,915 --> 00:00:29,980
+It doesn't look like a straight line fits this data-set very well.
+
+5
+00:00:29,980 --> 00:00:44,095
+Maybe you want to fit a curve, maybe a quadratic function to the data like this which includes a size x and also x squared, which is the size raised to the power of two.
+
+6
+00:00:44,095 --> 00:00:47,570
+Maybe that will give you a better fit to the data.
+
+7
+00:00:47,570 --> 00:00:55,115
+But then you may decide that your quadratic model doesn't really make sense because a quadratic function eventually comes back down.
+
+8
+00:00:55,115 --> 00:01:00,505
+Well, we wouldn't really expect housing prices to go down when the size increases.
+
+9
+00:01:00,505 --> 00:01:04,295
+Big houses seem like they should usually cost more.
+
+10
+00:01:04,295 --> 00:01:12,015
+Then you may choose a cubic function where we now have not only x squared, but x cubed.
+
+11
+00:01:12,015 --> 00:01:23,120
+Maybe this model produces this curve here, which is a somewhat better fit to the data because the size does eventually come back up as the size increases.
+
+12
+00:01:23,120 --> 00:01:34,375
+These are both examples of polynomial regression, because you took your optional feature x, and raised it to the power of two or three or any other power.
+
+13
+00:01:34,375 --> 00:01:43,840
+In the case of the cubic function, the first feature is the size, the second feature is the size squared, and the third feature is the size cubed.
+
+14
+00:01:43,840 --> 00:01:57,310
+I just want to point out one more thing, which is that if you create features that are these powers like the square of the original features like this, then feature scaling becomes increasingly important.
+
+15
+00:01:57,310 --> 00:02:14,965
+If the size of the house ranges from say, 1-1,000 square feet, then the second feature, which is a size squared, will range from one to a million, and the third feature, which is size cubed, ranges from one to a billion.
+
+16
+00:02:14,965 --> 00:02:23,260
+These two features, x squared and x cubed, take on very different ranges of values compared to the original feature x.
+
+17
+00:02:23,260 --> 00:02:31,990
+If you're using gradient descent, it's important to apply feature scaling to get your features into comparable ranges of values.
+
+18
+00:02:31,990 --> 00:02:38,810
+Finally, just one last example of how you really have a wide range of choices of features to use.
+
+19
+00:02:38,810 --> 00:02:46,630
+Another reasonable alternative to taking the size squared and size cubed is to say use the square root of x.
+
+20
+00:02:46,630 --> 00:02:55,395
+Your model may look like w_1 times x plus w_2 times the square root of x plus b.
+
+21
+00:02:55,395 --> 00:03:07,315
+The square root function looks like this, and it becomes a bit less steep as x increases, but it doesn't ever completely flatten out, and it certainly never ever comes back down.
+
+22
+00:03:07,315 --> 00:03:12,790
+This would be another choice of features that might work well for this data-set as well.
+
+23
+00:03:12,790 --> 00:03:35,320
+You may ask yourself, how do I decide what features to use? Later in the second course in this specialization, you see how you can choose different features and different models that include or don't include these features, and you have a process for measuring how well these different models perform to help you decide which features to include or not include.
+
+24
+00:03:35,320 --> 00:03:40,685
+For now, I just want you to be aware that you have a choice in what features you use.
+
+25
+00:03:40,685 --> 00:03:48,175
+By using feature engineering and polynomial functions, you can potentially get a much better model for your data.
+
+26
+00:03:48,175 --> 00:03:58,460
+In the optional lab that follows this video, you will see some code that implements polynomial regression using features like x, x squared, and x cubed.
+
+27
+00:03:58,460 --> 00:04:02,710
+Please take a look and run the code and see how it works.
+
+28
+00:04:02,710 --> 00:04:12,150
+There's also another optional lab after that one that shows how to use a popular open source toolkit that implements linear regression.
+
+29
+00:04:12,470 --> 00:04:24,890
+Scikit-learn is a very widely used open source machine learning library that is used by many practitioners in many of the top AI, internet, machine learning companies in the world.
+
+30
+00:04:26,060 --> 00:04:36,630
+If either now or in the future you're using machine learning in your job, there's a very good chance you'll be using tools like Scikit-learn to train your models.
+
+31
+00:04:37,100 --> 00:04:50,560
+Working through that optional lab will give you a chance to not only better understand linear regression, but also see how this can be done in just a few lines of code using a library like Scikit-learn.
+
+32
+00:04:50,560 --> 00:05:04,610
+For you to have a solid understanding of these algorithms, and be able to apply them, I do think is important that you know how to implement linear regression yourself and not just call some scikit-learn function that is a black-box.
+
+33
+00:05:04,610 --> 00:05:11,190
+But scikit-learn also has an important role in a way machine learning is done in practice today.
+
+34
+00:05:11,210 --> 00:05:14,625
+We're just about at the end of this week.
+
+35
+00:05:14,625 --> 00:05:18,000
+Congratulations on finishing all of this week's videos.
+
+36
+00:05:18,000 --> 00:05:27,165
+Please do take a look at the practice quizzes and also the practice lab, which I hope will let you try out and practice ideas that we've discussed.
+
+37
+00:05:27,165 --> 00:05:31,285
+In this week's practice lab, you implement linear regression.
+
+38
+00:05:31,285 --> 00:05:35,935
+I hope you have a lot of fun getting this learning algorithm to work for yourself.
+
+39
+00:05:35,935 --> 00:05:37,860
+Best of luck with that.
+
+40
+00:05:37,860 --> 00:05:49,580
+I also look forward to seeing you in next week's videos, where we'll go beyond regression, that is predicting numbers, to talk about our first classification algorithm, which can predict categories.
+
+41
+00:05:49,580 --> 00:05:51,990
+I'll see you next week.
+

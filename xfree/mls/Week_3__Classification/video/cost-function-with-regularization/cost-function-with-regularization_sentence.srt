@@ -1,0 +1,248 @@
+1
+00:00:01,340 --> 00:00:10,440
+In the last video we saw that regularization tries to make the parental values W1 through WN small to reduce overfitting.
+
+2
+00:00:10,440 --> 00:00:20,333
+In this video, we'll build on that intuition and developed a modified cost function for your learning algorithm that can use to actually apply regularization.
+
+3
+00:00:20,333 --> 00:00:31,702
+Let's jump in, recall this example from the previous video in which we saw that if you fit a quadratic function to this data, it gives a pretty good fit.
+
+4
+00:00:31,702 --> 00:00:37,809
+But if you fit a very high order polynomial, you end up with a curve that over fits the data.
+
+5
+00:00:37,809 --> 00:00:48,284
+But now consider the following, suppose that you had a way to make the parameters W3 and W4 really, really small.
+
+6
+00:00:48,284 --> 00:00:50,222
+Say close to 0.
+
+7
+00:00:50,222 --> 00:00:51,921
+Here's what I mean.
+
+8
+00:00:51,921 --> 00:00:59,965
+Let's say instead of minimizing this objective function, this is a cost function for linear regression.
+
+9
+00:00:59,965 --> 00:01:10,403
+Let's say you were to modify the cost function and add to it 1000 times W3 squared plus 1000 times W4 squared.
+
+10
+00:01:10,403 --> 00:01:17,524
+And here I'm just choosing 1000 because it's a big number but any other really large number would be okay.
+
+11
+00:01:17,524 --> 00:01:25,911
+So with this modified cost function, you could in fact be penalizing the model if W3 and W4 are large.
+
+12
+00:01:25,911 --> 00:01:44,901
+Because if you want to minimize this function, the only way to make this new cost function small is if W3 and W4 are both small, right? Because otherwise this 1000 times W3 squared and 1000 times W4 square terms are going to be really, really big.
+
+13
+00:01:44,901 --> 00:01:53,177
+So when you minimize this function, you're going to end up with W3 close to 0 and W4 close to 0.
+
+14
+00:01:53,177 --> 00:02:05,466
+So we're effectively nearly canceling out the effects of the features execute and extra power of 4 and getting rid of these two terms over here.
+
+15
+00:02:05,466 --> 00:02:17,696
+And if we do that, then we end up with a fit to the data that's much closer to the quadratic function, including maybe just tiny contributions from the features x cubed and extra 4.
+
+16
+00:02:17,696 --> 00:02:30,975
+And this is good because it's a much better fit to the data compared to if all the parameters could be large and you end up with this weekly quadratic function more generally, here's the idea behind regularization.
+
+17
+00:02:30,975 --> 00:02:37,925
+The idea is that if there are smaller values for the parameters, then that's a bit like having a simpler model.
+
+18
+00:02:37,925 --> 00:02:44,021
+Maybe one with fewer features, which is therefore less prone to overfitting.
+
+19
+00:02:44,021 --> 00:02:52,233
+On the last slide we penalize or we say we regularized only W3 and W4.
+
+20
+00:02:52,233 --> 00:03:05,051
+But more generally, the way that regularization tends to be implemented is if you have a lot of features, say a 100 features, you may not know which are the most important features and which ones to penalize.
+
+21
+00:03:05,051 --> 00:03:24,166
+So the way regularization is typically implemented is to penalize all of the features or more precisely, you penalize all the WJ parameters and it's possible to show that this will usually result in fitting a smoother simpler, less weekly function that's less prone to overfitting.
+
+22
+00:03:24,166 --> 00:03:32,394
+So for this example, if you have data with 100 features for each house, it may be hard to pick an advance which features to include and which ones to exclude.
+
+23
+00:03:32,394 --> 00:03:37,164
+So let's build a model that uses all 100 features.
+
+24
+00:03:37,164 --> 00:03:47,253
+So you have these 100 parameters W1 through W100, as well as 100 and first parameter B.
+
+25
+00:03:47,253 --> 00:03:51,548
+Because we don't know which of these parameters are going to be the important ones.
+
+26
+00:03:51,548 --> 00:04:03,563
+Let's penalize all of them a bit and shrink all of them by adding this new term lambda times the sum from J equals 1 through n where n is 100.
+
+27
+00:04:03,563 --> 00:04:08,328
+The number of features of wj squared.
+
+28
+00:04:08,328 --> 00:04:17,700
+This value lambda here is the Greek alphabet lambda and it's also called a regularization parameter.
+
+29
+00:04:17,700 --> 00:04:26,852
+So similar to picking a learning rate alpha, you now also have to choose a number for lambda.
+
+30
+00:04:26,852 --> 00:04:34,543
+A couple of things I would like to point out by convention, instead of using lambda times the sum of wj squared.
+
+31
+00:04:34,543 --> 00:04:44,039
+We also divide lambda by 2m so that both the 1st and 2nd terms here are scaled by 1 over 2m.
+
+32
+00:04:44,039 --> 00:04:52,488
+It turns out that by scaling both terms the same way it becomes a little bit easier to choose a good value for lambda.
+
+33
+00:04:52,488 --> 00:04:59,762
+And in particular you find that even if your training set size growth, say you find more training examples.
+
+34
+00:04:59,762 --> 00:05:02,557
+So m the training set size is now bigger.
+
+35
+00:05:02,557 --> 00:05:12,825
+The same value of lambda that you've picked previously is now also more likely to continue to work if you have this extra scaling by 2m.
+
+36
+00:05:12,825 --> 00:05:19,019
+Also by the way, by convention we're not going to penalize the parameter b for being large.
+
+37
+00:05:19,019 --> 00:05:22,400
+In practice, it makes very little difference whether you do or not.
+
+38
+00:05:22,400 --> 00:05:33,764
+And some machine learning engineers and actually some learning algorithm implementations will also include lambda over 2m times the b squared term.
+
+39
+00:05:33,764 --> 00:05:45,645
+But this makes very little difference in practice and the more common convention which was used in this course is to regularize only the parameters w rather than the parameter b.
+
+40
+00:05:45,645 --> 00:06:00,925
+So to summarize in this modified cost function, we want to minimize the original cost, which is the mean squared error cost plus additionally, the second term which is called the regularization term.
+
+41
+00:06:00,925 --> 00:06:05,634
+And so this new cost function trades off two goals that you might have.
+
+42
+00:06:05,634 --> 00:06:15,500
+Trying to minimize this first term encourages the algorithm to fit the training data well by minimizing the squared differences of the predictions and the actual values.
+
+43
+00:06:15,500 --> 00:06:18,377
+And try to minimize the second term.
+
+44
+00:06:18,377 --> 00:06:25,837
+The algorithm also tries to keep the parameters wj small, which will tend to reduce overfitting.
+
+45
+00:06:25,837 --> 00:06:36,283
+The value of lambda that you choose, specifies the relative importance or the relative trade off or how you balance between these two goals.
+
+46
+00:06:36,283 --> 00:06:42,535
+Let's take a look at what different values of lambda will cause you're learning algorithm to do.
+
+47
+00:06:42,535 --> 00:06:46,764
+Let's use the housing price prediction example using linear regression.
+
+48
+00:06:46,764 --> 00:06:50,022
+So F of X is the linear regression model.
+
+49
+00:06:50,022 --> 00:07:00,247
+If lambda was set to be 0, then you're not using the regularization term at all because the regularization term is multiplied by 0.
+
+50
+00:07:00,247 --> 00:07:08,093
+And so if lambda was 0, you end up fitting this overly wiggly, overly complex curve and it over fits.
+
+51
+00:07:08,093 --> 00:07:11,811
+So that was one extreme of if lambda was 0.
+
+52
+00:07:11,811 --> 00:07:14,029
+Let's now look at the other extreme.
+
+53
+00:07:14,029 --> 00:07:25,702
+If you said lambda to be a really, really, really large number, say lambda equals 10 to the power of 10, then you're placing a very heavy weight on this regularization term on the right.
+
+54
+00:07:25,702 --> 00:07:34,341
+And the only way to minimize this is to be sure that all the values of w are pretty much very close to 0.
+
+55
+00:07:34,341 --> 00:07:55,112
+So if lambda is very, very large, the learning algorithm will choose W1, W2, W3 and W4 to be extremely close to 0 and thus F of X is basically equal to b and so the learning algorithm fits a horizontal straight line and under fits.
+
+56
+00:07:55,112 --> 00:08:03,564
+To recap if lambda is 0 this model will over fit If lambda is enormous like 10 to the power of 10.
+
+57
+00:08:03,564 --> 00:08:05,607
+This model will under fit.
+
+58
+00:08:05,607 --> 00:08:21,587
+And so what you want is some value of lambda that is in between that more appropriately balances these first and second terms of trading off, minimizing the mean squared error and keeping the parameters small.
+
+59
+00:08:21,587 --> 00:08:36,399
+And when the value of lambda is not too small and not too large, but just right, then hopefully you end up able to fit a 4th order polynomial, keeping all of these features, but with a function that looks like this.
+
+60
+00:08:36,399 --> 00:08:39,092
+So that's how regularization works.
+
+61
+00:08:39,092 --> 00:08:48,182
+When we talk about model selection, later into specialization will also see a variety of ways to choose good values for lambda.
+
+62
+00:08:48,182 --> 00:09:01,551
+In the next two videos will flesh out how to apply regularization to linear regression and logistic regression, and how to train these models with great in dissent with that, you'll be able to avoid overfitting with both of these algorithms.
+

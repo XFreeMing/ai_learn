@@ -1,0 +1,168 @@
+1
+00:00:01,280 --> 00:00:18,585
+I remember when I first learned about vectorization, I spent many hours on my computer taking an unvectorized version of an algorithm running it, see how long it run, and then running a vectorized version of the code and seeing how much faster that run, and I just spent hours playing with that.
+
+2
+00:00:18,585 --> 00:00:23,985
+And it frankly blew my mind that the same algorithm vectorized would run so much faster.
+
+3
+00:00:23,985 --> 00:00:26,550
+It felt almost like a magic trick to me.
+
+4
+00:00:26,550 --> 00:00:30,930
+In this video, let's figure out how this magic trick really works.
+
+5
+00:00:30,930 --> 00:00:36,885
+Let's take a deeper look at how a vectorized implementation may work on your computer behind the scenes.
+
+6
+00:00:36,885 --> 00:00:38,895
+Let's look at this for loop.
+
+7
+00:00:38,895 --> 00:00:42,900
+The for loop like this runs without vectorization.
+
+8
+00:00:42,900 --> 00:00:51,970
+If j ranges from 0 to say 15, this piece of code performs operations one after another.
+
+9
+00:00:51,970 --> 00:00:56,955
+On the first timestamp which I'm going to write as t0.
+
+10
+00:00:56,955 --> 00:01:01,570
+It first operates on the values at index 0.
+
+11
+00:01:01,570 --> 00:01:12,625
+At the next time-step, it calculates values corresponding to index 1 and so on until the 15th step, where it computes that.
+
+12
+00:01:12,625 --> 00:01:19,860
+In other words, it calculates these computations one step at a time, one step after another.
+
+13
+00:01:19,880 --> 00:01:28,285
+In contrast, this function in NumPy is implemented in the computer hardware with vectorization.
+
+14
+00:01:28,285 --> 00:01:41,825
+The computer can get all values of the vectors w and x, and in a single-step, it multiplies each pair of w and x with each other all at the same time in parallel.
+
+15
+00:01:41,825 --> 00:01:57,889
+Then after that, the computer takes these 16 numbers and uses specialized hardware to add them altogether very efficiently, rather than needing to carry out distinct additions one after another to add up these 16 numbers.
+
+16
+00:01:57,889 --> 00:02:06,040
+This means that codes with vectorization can perform calculations in much less time than codes without vectorization.
+
+17
+00:02:06,040 --> 00:02:15,815
+This matters more when you're running algorithms on large data sets or trying to train large models, which is often the case with machine learning.
+
+18
+00:02:15,815 --> 00:02:31,960
+That's why being able to vectorize implementations of learning algorithms, has been a key step to getting learning algorithms to run efficiently, and therefore scale well to large datasets that many modern machine learning algorithms now have to operate on.
+
+19
+00:02:31,960 --> 00:02:42,940
+Now, let's take a look at a concrete example of how this helps with implementing multiple linear regression and this linear regression with multiple input features.
+
+20
+00:02:42,940 --> 00:02:54,655
+Say you have a problem with 16 features and 16 parameters, w1 through w16, in addition to the parameter b.
+
+21
+00:02:54,655 --> 00:03:10,115
+You calculate it 16 derivative terms for these 16 weights and codes, maybe you store the values of w and d in two np.arrays, with d storing the values of the derivatives.
+
+22
+00:03:10,115 --> 00:03:14,540
+For this example, I'm just going to ignore the parameter b.
+
+23
+00:03:14,540 --> 00:03:20,390
+Now, you want to compute an update for each of these 16 parameters.
+
+24
+00:03:20,390 --> 00:03:33,190
+W_j is updated to w_j minus the learning rate, say 0.1, times d_j, for j from 1 through 16.
+
+25
+00:03:33,190 --> 00:03:39,835
+Encodes without vectorization, you would be doing something like this.
+
+26
+00:03:39,835 --> 00:03:57,280
+Update w1 to be w1 minus the learning rate 0.1 times d1, next, update w2 similarly, and so on through w16, updated as w16 minus 0.1 times d16.
+
+27
+00:03:57,280 --> 00:04:13,580
+Encodes without vectorization, you can use a for loop like this for j in range 016, that again goes from 0-15, said w_j equals w_j minus 0.1 times d_j.
+
+28
+00:04:13,580 --> 00:04:21,725
+In contrast, with factorization, you can imagine the computer's parallel processing hardware like this.
+
+29
+00:04:21,725 --> 00:04:39,995
+It takes all 16 values in the vector w and subtracts in parallel, 0.1 times all 16 values in the vector d, and assign all 16 calculations back to w all at the same time and all in one step.
+
+30
+00:04:39,995 --> 00:05:00,655
+In code, you can implement this as follows, w is assigned to w minus 0.1 times d. Behind the scenes, the computer takes these NumPy arrays, w and d, and uses parallel processing hardware to carry out all 16 computations efficiently.
+
+31
+00:05:00,655 --> 00:05:07,090
+Using a vectorized implementation, you should get a much more efficient implementation of linear regression.
+
+32
+00:05:07,090 --> 00:05:21,710
+Maybe the speed difference won't be huge if you have 16 features, but if you have thousands of features and perhaps very large training sets, this type of vectorized implementation will make a huge difference in the running time of your learning algorithm.
+
+33
+00:05:21,710 --> 00:05:29,015
+It could be the difference between codes finishing in one or two minutes, versus taking many hours to do the same thing.
+
+34
+00:05:29,015 --> 00:05:40,705
+In the optional lab that follows this video, you see an introduction to one of the most used Python libraries and Machine Learning, which we've already touched on in this video called NumPy.
+
+35
+00:05:40,705 --> 00:05:56,155
+You see how they create vectors encode and these vectors or lists of numbers are called NumPy arrays, and you also see how to take the dot product of two vectors using a NumPy function called dot.
+
+36
+00:05:56,155 --> 00:06:03,905
+You also get to see how vectorized code such as using the dot function, can run much faster than a for-loop.
+
+37
+00:06:03,905 --> 00:06:09,265
+In fact, you'd get to time this code yourself, and hopefully see it run much faster.
+
+38
+00:06:09,265 --> 00:06:27,700
+This optional lab introduces a fair amount of new NumPy syntax, so when you read through the optional lab, please still feel like you have to understand all the code right away, but you can save this notebook and use it as a reference to look at when you're working with data stored in NumPy arrays.
+
+39
+00:06:27,700 --> 00:06:31,160
+Congrats on finishing this video on vectorization.
+
+40
+00:06:31,160 --> 00:06:36,724
+You've learned one of the most important and useful techniques in implementing machine learning algorithms.
+
+41
+00:06:36,724 --> 00:06:49,420
+In the next video, we'll put the math of multiple linear regression together with vectorization, so that you will influence gradient descent for multiple linear regression with vectorization.
+
+42
+00:06:49,420 --> 00:06:52,210
+Let's go on to the next video.
+

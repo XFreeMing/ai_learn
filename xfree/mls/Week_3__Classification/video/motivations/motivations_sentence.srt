@@ -1,0 +1,364 @@
+1
+00:00:00,000 --> 00:00:03,053
+Welcome to the third week of this course.
+
+2
+00:00:03,053 --> 00:00:07,640
+By the end of this week, you have completed the first course of this specialization.
+
+3
+00:00:07,640 --> 00:00:09,962
+So let's jump in.
+
+4
+00:00:09,962 --> 00:00:14,455
+Last week you learned about linear regression, which predicts a number.
+
+5
+00:00:14,455 --> 00:00:26,340
+This week, you learn about classification where your output variable y can take on only one of a small handful of possible values instead of any number in an infinite range of numbers.
+
+6
+00:00:26,340 --> 00:00:32,149
+It turns out that linear regression is not a good algorithm for classification problems.
+
+7
+00:00:32,149 --> 00:00:39,060
+Let's take a look at why and this will lead us into a different algorithm called logistic regression.
+
+8
+00:00:39,060 --> 00:00:43,032
+Which is one of the most popular and most widely used learning algorithms today.
+
+9
+00:00:43,032 --> 00:00:51,858
+Here are some examples of classification problems recall the example of trying to figure out whether an email is spam.
+
+10
+00:00:51,858 --> 00:00:57,370
+So the answer you want to output is going to be either a no or a yes.
+
+11
+00:00:57,370 --> 00:01:04,022
+Another example would be figuring out if an online financial transaction is fraudulent.
+
+12
+00:01:04,022 --> 00:01:09,922
+Fighting online financial fraud is something I once worked on and it was strangely exhilarating.
+
+13
+00:01:09,922 --> 00:01:16,840
+Because I knew there were forces out there trying to steal money and my team's job was to stop them.
+
+14
+00:01:16,840 --> 00:01:20,780
+So the problem is given a financial transaction.
+
+15
+00:01:20,780 --> 00:01:37,550
+Can your learning algorithm figure out is this transaction fraudulent, such as what this credit card stolen? Another example we've touched on before was trying to classify a tumor as malignant versus not.
+
+16
+00:01:37,550 --> 00:01:44,311
+In each of these problems the variable that you want to predict can only be one of two possible values.
+
+17
+00:01:44,311 --> 00:01:46,240
+No or yes.
+
+18
+00:01:46,240 --> 00:01:52,780
+This type of classification problem where there are only two possible outputs is called binary classification.
+
+19
+00:01:52,780 --> 00:02:01,320
+Where the word binary refers to there being only two possible classes or two possible categories.
+
+20
+00:02:01,320 --> 00:02:09,474
+In these problems I will use the terms class and category relatively interchangeably.
+
+21
+00:02:09,474 --> 00:02:11,806
+They mean basically the same thing.
+
+22
+00:02:11,806 --> 00:02:18,273
+By convention we can refer to these two classes or categories in a few common ways.
+
+23
+00:02:18,273 --> 00:02:31,053
+We often designate clauses as no or yes or sometimes equivalently false or true or very commonly using the numbers zero or one.
+
+24
+00:02:31,053 --> 00:02:38,450
+Following the common convention in computer science with zero denoting falls and one denoting true.
+
+25
+00:02:38,450 --> 00:02:44,006
+I'm usually going to use the numbers zero and one to represent the answer y.
+
+26
+00:02:44,006 --> 00:02:50,174
+Because that will fit in most easily with the types of learning algorithms we want to implement.
+
+27
+00:02:50,174 --> 00:02:56,945
+But when we talk about it will often say no or yes or false or true as well.
+
+28
+00:02:56,945 --> 00:03:01,651
+One of the technologies commonly used is to call the false or zero class.
+
+29
+00:03:01,651 --> 00:03:09,055
+The negative class and the true or the one class, the positive class.
+
+30
+00:03:09,055 --> 00:03:16,767
+For example, for spam classification, an email that is not spam may be referred to as a negative example.
+
+31
+00:03:16,767 --> 00:03:19,811
+Because the output to the question of is a spam.
+
+32
+00:03:19,811 --> 00:03:22,961
+The output is no or zero.
+
+33
+00:03:22,961 --> 00:03:30,134
+In contrast, an email that has spam might be referred to as a positive training example.
+
+34
+00:03:30,134 --> 00:03:38,172
+Because the answer to is it spam is yes or true or one to be clear, negative and positive.
+
+35
+00:03:38,172 --> 00:03:42,355
+Do not necessarily mean bad versus good or evil versus good.
+
+36
+00:03:42,355 --> 00:03:53,320
+It's just that negative and positive examples are used to convey the concepts of absence or zero or false vs the presence or true or one of something you might be looking for.
+
+37
+00:03:53,320 --> 00:04:07,380
+Such as the absence or presence of the spam illness or the spam property of an email or the absence of presence of broadening activity or absence of presence of malignancy of the tumor.
+
+38
+00:04:07,380 --> 00:04:10,091
+Between non spam and spam emails.
+
+39
+00:04:10,091 --> 00:04:17,050
+Which one you call false or zero and which one you call true or one is a little bit arbitrary.
+
+40
+00:04:17,050 --> 00:04:20,067
+Often either choice could work.
+
+41
+00:04:20,067 --> 00:04:24,342
+So, different engineer might actually swap it around and have the positive class B.
+
+42
+00:04:24,342 --> 00:04:33,940
+The presence of a good email or the possible causes be the presence of a real financial transaction or a healthy patient.
+
+43
+00:04:33,940 --> 00:04:43,349
+So how do you build a classification algorithm? Here's the example of a training set for classifying if the tumor is malignant.
+
+44
+00:04:43,349 --> 00:04:51,102
+A class one, positive class, yes class or benign, class zero or negative class.
+
+45
+00:04:51,102 --> 00:04:59,274
+I plotted both the tumor size on the horizontal axis as well as the label Y on the vertical axis.
+
+46
+00:04:59,274 --> 00:05:03,282
+By the way, in week one, when we first talked about classification.
+
+47
+00:05:03,282 --> 00:05:09,740
+This is how we previously visualized it on the number line except that now we're calling the classes zero.
+
+48
+00:05:09,740 --> 00:05:14,068
+And one and plotting them on the vertical axis.
+
+49
+00:05:14,068 --> 00:05:20,106
+Now, one thing you could try on this training set is to apply the album you already know.
+
+50
+00:05:20,106 --> 00:05:24,856
+Linear regression and try to fit a straight line to the data.
+
+51
+00:05:24,856 --> 00:05:31,811
+If you do that, maybe the straight line looks like this, right? And that's your F effects.
+
+52
+00:05:31,811 --> 00:05:35,800
+Linear regression predicts not just the values zero and one.
+
+53
+00:05:35,800 --> 00:05:41,347
+But all numbers between zero and one or even less than zero or greater than one.
+
+54
+00:05:41,347 --> 00:05:45,640
+But here we want to predict categories.
+
+55
+00:05:45,640 --> 00:05:51,962
+One thing you could try is to pick a threshold of say 0.5.
+
+56
+00:05:51,962 --> 00:06:00,564
+So that if the model outputs a value below 0.5, then you predict why equal zero or not malignant.
+
+57
+00:06:00,564 --> 00:06:09,977
+And if the model outputs a number equal to or greater than 0.5, then predict Y equals one or malignant.
+
+58
+00:06:09,977 --> 00:06:17,921
+Notice that this threshold value of 0.5 intersects the best fit straight line at this point.
+
+59
+00:06:17,921 --> 00:06:25,643
+So if you draw this vertical line here, everything to the left ends up with a prediction of y equals zero.
+
+60
+00:06:25,643 --> 00:06:31,148
+And everything on the right ends up with the prediction of y equals one.
+
+61
+00:06:31,148 --> 00:06:37,240
+Now, for this particular data set it looks like linear regression could do something reasonable.
+
+62
+00:06:37,240 --> 00:06:42,467
+But now let's see what happens if your dataset has one more training example.
+
+63
+00:06:42,467 --> 00:06:46,042
+This one way over here on the right.
+
+64
+00:06:46,042 --> 00:06:49,005
+Let's also extend the horizontal axis.
+
+65
+00:06:49,005 --> 00:06:54,940
+Notice that this training example shouldn't really change how you classify the data points.
+
+66
+00:06:54,940 --> 00:07:02,971
+This vertical dividing line that we drew just now still makes sense as the cut off where tumors smaller than this should be classified as zero.
+
+67
+00:07:02,971 --> 00:07:07,040
+And tumors greater than this should be classified as one.
+
+68
+00:07:07,040 --> 00:07:10,338
+But once you've added this extra training example on the right.
+
+69
+00:07:10,338 --> 00:07:15,258
+The best fit line for linear regression will shift over like this.
+
+70
+00:07:15,258 --> 00:07:27,323
+And if you continue using the threshold of 0.5, you now notice that everything to the left of this point is predicted at zero non malignant.
+
+71
+00:07:27,323 --> 00:07:32,880
+And everything to the right of this point is predicted to be one or malignant.
+
+72
+00:07:32,880 --> 00:07:44,650
+This isn't what we want because adding that example way to the right shouldn't change any of our conclusions about how to classify malignant versus benign tumors.
+
+73
+00:07:44,650 --> 00:07:51,685
+But if you try to do this with linear regression, adding this one example which feels like it shouldn't be changing anything.
+
+74
+00:07:51,685 --> 00:07:57,040
+It ends up with us learning a much worse function for this classification problem.
+
+75
+00:07:57,040 --> 00:08:03,012
+Clearly, when the tumor is large, we want the algorithm to classify it as malignant.
+
+76
+00:08:03,012 --> 00:08:08,388
+So what we just saw was linear regression causes the best fit line.
+
+77
+00:08:08,388 --> 00:08:13,063
+When we added one more example to the right to shift over.
+
+78
+00:08:13,063 --> 00:08:20,610
+And does the dividing line also called the decision boundary to shift over to the right.
+
+79
+00:08:20,610 --> 00:08:29,342
+You learn more about the decision boundary in the next video, you also learn about an algorithm called logistic regression.
+
+80
+00:08:29,342 --> 00:08:34,741
+Where the output value of the outcome will always be between zero and one.
+
+81
+00:08:34,741 --> 00:08:38,377
+And the average will avoid these problems that we're seeing on this slide.
+
+82
+00:08:38,377 --> 00:08:49,033
+By the way one thing confusing about the name logistic regression is that even though it has the word of regression in it is actually used for classification.
+
+83
+00:08:49,033 --> 00:08:53,487
+Don't be confused by the name which was given for historical reasons.
+
+84
+00:08:53,487 --> 00:09:01,339
+It's actually used to solve binary classification problems with output label y is either zero or one.
+
+85
+00:09:01,339 --> 00:09:10,128
+In the upcoming optional lab you also get to take a look at what happens when you try to use linear regression for classification.
+
+86
+00:09:10,128 --> 00:09:16,352
+Sometimes you get lucky and it may work but often it will not work well.
+
+87
+00:09:16,352 --> 00:09:21,141
+Which is why I don't use linear regression myself for classification.
+
+88
+00:09:21,141 --> 00:09:27,417
+In the optional lab, you see an interactive plot that attempts to classify between two categories.
+
+89
+00:09:27,417 --> 00:09:32,123
+And hopefully notice how this often doesn't work very well.
+
+90
+00:09:32,123 --> 00:09:37,941
+Which is okay because that motivates the need for a different model to do classification talks.
+
+91
+00:09:37,941 --> 00:09:46,561
+So please check out this optional lab and after that we're going to the next video to look at logistic regression for classification.
+

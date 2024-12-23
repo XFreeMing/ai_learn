@@ -1,0 +1,276 @@
+1
+00:00:03,410 --> 00:00:09,540
+Let's take a look at how you can actually implement the gradient descent algorithm.
+
+2
+00:00:09,540 --> 00:00:13,725
+Let me write down the gradient descent algorithm.
+
+3
+00:00:13,725 --> 00:00:30,430
+Here it is. On each step, w, the parameter, is updated to the old value of w minus Alpha times this term d/dw of the cos function J of wb.
+
+4
+00:00:30,430 --> 00:00:47,820
+What this expression is saying is, after your parameter w by taking the current value of w and adjusting it a small amount, which is this expression on the right, minus Alpha times this term over here.
+
+5
+00:00:48,980 --> 00:00:55,310
+If you feel like there's a lot going on in this equation, it's okay, don't worry about it.
+
+6
+00:00:55,310 --> 00:00:57,490
+We'll unpack it together.
+
+7
+00:00:57,490 --> 00:01:01,140
+First, this equal notation here.
+
+8
+00:01:01,140 --> 00:01:11,710
+Now, since I said we're assigning w a value using this equal sign, so in this context, this equal sign is the assignment operator.
+
+9
+00:01:11,710 --> 00:01:23,665
+Specifically, in this context, if you write code that says a equals c, it means take the value c and store it in your computer, in the variable a.
+
+10
+00:01:23,665 --> 00:01:33,325
+Or if you write a equals a plus 1, it means set the value of a to be equal to a plus 1, or increments the value of a by one.
+
+11
+00:01:33,325 --> 00:01:41,095
+The assignment operator encoding is different than truth assertions in mathematics.
+
+12
+00:01:41,095 --> 00:01:50,095
+Where if I write a equals c, I'm asserting, that is, I'm claiming that the values of a and c are equal to each other.
+
+13
+00:01:50,095 --> 00:01:57,655
+Hopefully, I will never write a truth assertion a equals a plus 1 because that just can't possibly be true.
+
+14
+00:01:57,655 --> 00:02:23,215
+In Python and in other programming languages, truth assertions are sometimes written as equals equals, so you may see oh, that says a equals equals c if you're testing whether a is equal to c. But in math notation, as we conventionally use it, like in these videos, the equal sign can be used for either assignments or for truth assertion.
+
+15
+00:02:23,215 --> 00:02:34,765
+I try to make sure I was clear when I write an equal sign, whether we're assigning a value to a variable, or whether we're asserting the truth of the equality of two values.
+
+16
+00:02:34,765 --> 00:02:39,965
+Now, this dive more deeply into what the symbols in this equation means.
+
+17
+00:02:39,965 --> 00:02:45,070
+The symbol here is the Greek alphabet Alpha.
+
+18
+00:02:45,070 --> 00:02:50,720
+In this equation, Alpha is also called the learning rate.
+
+19
+00:02:50,720 --> 00:02:58,650
+The learning rate is usually a small positive number between 0 and 1 and it might be say, 0.01.
+
+20
+00:02:58,660 --> 00:03:05,515
+What Alpha does is, it basically controls how big of a step you take downhill.
+
+21
+00:03:05,515 --> 00:03:15,550
+If Alpha is very large, then that corresponds to a very aggressive gradient descent procedure where you're trying to take huge steps downhill.
+
+22
+00:03:15,550 --> 00:03:20,705
+If Alpha is very small, then you'd be taking small baby steps downhill.
+
+23
+00:03:20,705 --> 00:03:26,560
+We'll come back later to dive more deeply into how to choose a good learning rate Alpha.
+
+24
+00:03:26,560 --> 00:03:33,155
+Finally, this term here, that's the derivative term of the cost function J.
+
+25
+00:03:33,155 --> 00:03:36,740
+Let's not worry about the details of this derivative right now.
+
+26
+00:03:36,740 --> 00:03:40,750
+But later on, you'll get to see more about the derivative term.
+
+27
+00:03:40,750 --> 00:03:49,660
+But for now, you can think of this derivative term that I drew a magenta box around as telling you in which direction you want to take your baby step.
+
+28
+00:03:49,660 --> 00:03:57,625
+In combination with the learning rate Alpha, it also determines the size of the steps you want to take downhill.
+
+29
+00:03:57,625 --> 00:04:02,825
+Now, I do want to mention that derivatives come from calculus.
+
+30
+00:04:02,825 --> 00:04:06,820
+Even if you aren't familiar with calculus, don't worry about it.
+
+31
+00:04:06,820 --> 00:04:16,470
+Even without knowing any calculus, you'd be able to figure out all you need to know about this derivative term in this video and the next. One more thing.
+
+32
+00:04:16,470 --> 00:04:22,040
+Remember your model has two parameters, not just w, but also b.
+
+33
+00:04:22,040 --> 00:04:28,595
+You also have an assignment operations update the parameter b that looks very similar.
+
+34
+00:04:28,595 --> 00:04:42,895
+b is assigned the old value of b minus the learning rate Alpha times this slightly different derivative term, d/db of J of wb.
+
+35
+00:04:42,895 --> 00:04:57,950
+Remember in the graph of the surface plot where you're taking baby steps until you get to the bottom of the value, well, for the gradient descent algorithm, you're going to repeat these two update steps until the algorithm converges.
+
+36
+00:04:57,950 --> 00:05:09,830
+By converges, I mean that you reach the point at a local minimum where the parameters w and b no longer change much with each additional step that you take.
+
+37
+00:05:09,830 --> 00:05:20,465
+Now, there's one more subtle detail about how to correctly in semantic gradient descent, you're going to update two parameters, w and b.
+
+38
+00:05:20,465 --> 00:05:25,655
+This update takes place for both parameters, w and b.
+
+39
+00:05:25,655 --> 00:05:39,710
+One important detail is that for gradient descent, you want to simultaneously update w and b, meaning you want to update both parameters at the same time.
+
+40
+00:05:39,710 --> 00:05:54,815
+What I mean by that, is that in this expression, you're going to update w from the old w to a new w, and you're also updating b from its oldest value to a new value of b.
+
+41
+00:05:54,815 --> 00:06:10,745
+The way to implement this is to compute the right side, computing this thing for w and b, and simultaneously at the same time, update w and b to the new values.
+
+42
+00:06:10,745 --> 00:06:13,955
+Let's take a look at what this means.
+
+43
+00:06:13,955 --> 00:06:19,790
+Here's the correct way to implement gradient descent which does a simultaneous update.
+
+44
+00:06:19,790 --> 00:06:27,470
+This sets a variable temp_w equal to that expression, which is w minus that term here.
+
+45
+00:06:27,470 --> 00:06:33,755
+There's also a set in another variable temp_b to that, which is b minus that term.
+
+46
+00:06:33,755 --> 00:06:40,775
+You compute both for hand sides, both updates, and store them into variables temp_w and temp_b.
+
+47
+00:06:40,775 --> 00:06:51,215
+Then you copy the value of temp_w into w, and you also copy the value of temp_b into b.
+
+48
+00:06:51,215 --> 00:07:00,005
+Now, one thing you may notice is that this value of w is from the for w gets updated.
+
+49
+00:07:00,005 --> 00:07:07,640
+Here, I noticed that the pre-update w is where it goes into the derivative term over here.
+
+50
+00:07:07,640 --> 00:07:15,665
+In contrast, here is an incorrect implementation of gradient descent that does not do a simultaneous update.
+
+51
+00:07:15,665 --> 00:07:23,505
+In this incorrect implementation, we compute temp_w, same as before, so far that's okay.
+
+52
+00:07:23,505 --> 00:07:26,725
+Now here's where things start to differ.
+
+53
+00:07:26,725 --> 00:07:35,550
+We then update w with the value in temp_w before calculating the new value for the other parameter to be.
+
+54
+00:07:35,550 --> 00:07:45,095
+Next, we calculate temp_b as b minus that term here, and finally, we update b with the value in temp_b.
+
+55
+00:07:45,095 --> 00:08:02,945
+The difference between the right-hand side and the left-hand side implementations is that if you look over here, this w has already been updated to this new value, and this is updated w that actually goes into the cost function j of w, b.
+
+56
+00:08:02,945 --> 00:08:10,655
+It means that this term here on the right is not the same as this term over here that you see on the left.
+
+57
+00:08:10,655 --> 00:08:29,165
+That also means this temp_b term on the right is not quite the same as the temp b term on the left, and thus this updated value for b on the right is not the same as this updated value for variable b on the left.
+
+58
+00:08:29,165 --> 00:08:39,680
+The way that gradient descent is implemented in code, it actually turns out to be more natural to implement it the correct way with simultaneous updates.
+
+59
+00:08:39,680 --> 00:08:48,335
+When you hear someone talk about gradient descent, they always mean the gradient descents where you perform a simultaneous update of the parameters.
+
+60
+00:08:48,335 --> 00:08:57,230
+If however, you were to implement non-simultaneous update, it turns out it will probably work more or less anyway.
+
+61
+00:08:57,230 --> 00:09:04,385
+But doing it this way isn't really the correct way to implement it, is actually some other algorithm with different properties.
+
+62
+00:09:04,385 --> 00:09:12,560
+I would advise you to just stick to the correct simultaneous update and not use this incorrect version on the right.
+
+63
+00:09:12,560 --> 00:09:14,780
+That's gradient descent.
+
+64
+00:09:14,780 --> 00:09:22,895
+In the next video, we'll go into details of the derivative term which you saw in this video, but that we didn't really talk about in detail.
+
+65
+00:09:22,895 --> 00:09:29,115
+Derivatives are part of calculus, and again, if you're not familiar with calculus, don't worry about it.
+
+66
+00:09:29,115 --> 00:09:39,550
+You don't need to know calculus at all in order to complete this course or this specialization, and you have all the information you need in order to implement gradient descent.
+
+67
+00:09:39,550 --> 00:09:51,975
+Coming up in the next video, we'll go over derivatives together, and you come away with the intuition and knowledge you need to be able to implement and apply gradient descent yourself.
+
+68
+00:09:51,975 --> 00:09:55,580
+I think that'll be an exciting thing for you to know how to implement.
+
+69
+00:09:55,580 --> 00:09:59,760
+Let's go on to the next video to see how to do that.
+

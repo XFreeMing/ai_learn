@@ -1,0 +1,1152 @@
+1
+00:00:06,320 --> 00:00:11,730
+Hi, I'm delighted to have with us here today my old friend, professor Fei-Fei Li.
+
+2
+00:00:11,730 --> 00:00:21,180
+Fei-Fei is a professor of computer science at Stanford University and also co-director of HAI; the Human-Centered AI Institute.
+
+3
+00:00:21,180 --> 00:00:28,590
+Previously, she also was responsible for AI at Google Cloud as a chief scientist for the division.
+
+4
+00:00:28,590 --> 00:00:30,120
+It's great to have you Fei-Fei.
+
+5
+00:00:30,120 --> 00:00:33,100
+Thank you, Andrew.
+
+6
+ --> 00:00:33,100
+Very happy to be here.
+
+7
+00:00:33,110 --> 00:00:36,450
+How long have we known each other? I've lost track.
+
+8
+00:00:36,450 --> 00:00:38,400
+Definitely more than a decade.
+
+9
+00:00:38,400 --> 00:00:50,840
+I've known your work before we even met and I came to Stanford 2009 but we started talking 2007, so 15 years.
+
+10
+00:00:50,840 --> 00:00:59,970
+I actually still have very clear memories of how stressful it was when collectively bunch of us; me, Chris Manning, bunch of us.
+
+11
+00:00:59,970 --> 00:01:02,615
+We tried to figure out how to recruit you to come to Stanford.
+
+12
+00:01:02,615 --> 00:01:03,965
+It wasn't hard.
+
+13
+00:01:03,965 --> 00:01:14,430
+I just needed to sort out my student's life, but it's hard to resist Stanford Really great to have you as a friend and colleague here.
+
+14
+00:01:14,430 --> 00:01:20,390
+Me too. It's been a long time and we're very lucky to be the generation.
+
+15
+00:01:20,390 --> 00:01:23,760
+Seeing AI is great progress.
+
+16
+00:01:23,760 --> 00:01:53,585
+There was something about your background I always found inspiring, which is today people are entering AI from all walks of life and sometimes people still wonder, is AI a right path for me? So I thought one of the most interesting parts of your background was that you actually started out not studying computer science or AI, but you started out studying physics and then had this path to becoming one of the most globally recognizable AI scientists.
+
+17
+00:01:53,585 --> 00:02:08,085
+How did you make that switch from physics to AI? Well, that's a great question, Andrew, especially both of us are passionate about young people's future and they come into the world of AI.
+
+18
+00:02:08,085 --> 00:02:23,450
+The truth is, if I could enter AI back then more than 20 years ago today, anybody can enter AI because AI has become such a prevailing and globally impactful technology.
+
+19
+00:02:23,450 --> 00:02:27,625
+But myself, maybe I was an accident.
+
+20
+00:02:27,625 --> 00:02:32,885
+I have always been a physics kid or a STEM kid.
+
+21
+00:02:32,885 --> 00:02:43,745
+I'm sure you were too, but physics was my passion all the way through middle school, high school, college and I went to Princeton and majored in physics.
+
+22
+00:02:43,745 --> 00:02:55,055
+One thing physics has taught me till today is really the passion for asking big questions, the passion for seeking no stars.
+
+23
+00:02:55,055 --> 00:02:59,390
+I was really having fun as a physics student at Princeton.
+
+24
+00:02:59,390 --> 00:03:44,585
+One thing I did was reading up stories and just writings of great physicists of the 20th century and just hear about what they think about the world, especially people like Albert Einstein, Roger Penrose, Erwin Schrodinger, and it was really funny to notice that many of the writings towards the later half of the career of these great physicists were not about just the atomic world or the physical world, but ponderings about equally audacious questions like life, like intelligence, like human conditions.
+
+25
+00:03:44,585 --> 00:03:54,160
+Schrodinger wrote this book, What is Life? Roger Penrose wrote this book, Emperor's New Mind.
+
+26
+00:03:54,620 --> 00:04:00,575
+That really got me very curious about the topic of intelligence.
+
+27
+00:04:00,575 --> 00:04:30,040
+One thing led to another during college time, I did intern at the top of neuroscience labs and especially vision-related, and I was like, wow, this is just as audacious question to ask as the beginning of the universe or what is matter made of? That got me to switch from undergraduate degree in physics to graduate degree in AI.
+
+28
+00:04:30,040 --> 00:04:36,220
+Even though I don't know about you during our time, AI was a dirty word.
+
+29
+00:04:36,220 --> 00:04:42,425
+It was AI winter, so it was more machine learning and computer vision, and computational neuroscience.
+
+30
+00:04:42,425 --> 00:04:47,345
+Yeah, I know. Honestly, I think when I was an undergrad, I was too busy writing code.
+
+31
+00:04:47,345 --> 00:04:52,550
+I just managed to blithely ignore the AI winter and just kept on coding.
+
+32
+00:04:52,550 --> 00:04:57,870
+Yeah, well, I was too busy solving PDE equations.
+
+33
+00:04:58,240 --> 00:05:06,230
+Actually, do you have an audacious question now? Yes, my audacious question is still intelligence.
+
+34
+00:05:06,230 --> 00:05:18,360
+I think since Alan Turing, humanity has not fully understand what is the fundamental computing principles behind intelligence.
+
+35
+00:05:20,100 --> 00:05:40,080
+Today we use the words AI, we use the word AGI, but at the end of the day, I still dream of a set of simple equations or simple principles that can define the process of intelligence, whether it's animal intelligence or machine intelligence.
+
+36
+00:05:40,080 --> 00:05:42,570
+This is similar to physics.
+
+37
+00:05:42,570 --> 00:05:46,605
+For example, many people have drawn the analogy of flying.
+
+38
+00:05:46,605 --> 00:05:57,505
+Are we replicating birds flying or are we building airplane? A lot of people ask the question of the relationship between AI and brain.
+
+39
+00:05:57,505 --> 00:06:14,710
+To me, whether we're building a bird or replicating a bird or building an airplane, at the end of the day, aerodynamics and physics that govern the process of flying, and I do believe one day we'll discover that.
+
+40
+00:06:14,710 --> 00:06:18,400
+I sometimes think about this one learning algorithm hypothesis.
+
+41
+00:06:18,400 --> 00:06:29,920
+Could a lot of intelligence, maybe not all, but a lot of it be explained by one or a very simple machine learning principle? It feels like we're still so far from cracking that nut.
+
+42
+00:06:29,920 --> 00:06:38,620
+But in the weekends when I have spare time when I think about learning algorithms and where they could go, this is one of the things I'm excited about. Just thinking about that.
+
+43
+00:06:38,620 --> 00:06:47,395
+I totally agree. I still feel like we're pre-Newtonian if we're doing physics analogy before Newton.
+
+44
+00:06:47,395 --> 00:06:57,580
+There has been great physics, great physicists, a lot of phenomenology, a lot of studies of how the astral bodies move and all that.
+
+45
+00:06:57,580 --> 00:07:01,750
+But it was Newton who started to write very simple laws.
+
+46
+00:07:01,750 --> 00:07:09,370
+I think we are still going through that very exciting coming of age of AI as a basic science.
+
+47
+00:07:09,370 --> 00:07:13,180
+We're pre-Newton in my opinion.
+
+48
+00:07:13,180 --> 00:07:18,010
+It's really nice to hear you talk about how despite machine learning and AI having come so far.
+
+49
+00:07:18,010 --> 00:07:27,460
+It still feels like there are a lot more unanswered questions, a lot more work to be done by maybe some of the people joining the field today than work that's already been done.
+
+50
+00:07:27,460 --> 00:07:32,770
+Absolutely. Let's calculate, it's only 160 years about.
+
+51
+00:07:32,770 --> 00:07:34,900
+It's a very nascent field.
+
+52
+00:07:34,900 --> 00:07:41,290
+Modern physics and chemistry and biology are all hundreds of years.
+
+53
+00:07:41,290 --> 00:07:53,635
+I think it is very exciting to be entering the field of science of intelligence and studying AI today.
+
+54
+00:07:53,635 --> 00:08:09,055
+Yeah, actually that's good. I think I remember chatting with the late Professor John McCarthy who had coined the term artificial intelligence, and boy, the field has changed since when he conceived of it at a workshop and came up with the term AI.
+
+55
+00:08:09,055 --> 00:08:20,665
+But maybe another ten years from now, maybe someone watching this will come with a new set of ideas and then we'll be saying, boy, AI show us different than what you and I thought it would be.
+
+56
+00:08:20,665 --> 00:08:22,585
+That's the exciting future to build towards.
+
+57
+00:08:22,585 --> 00:08:27,115
+Yeah, I'm sure Newton would have not dreamed of Einstein.
+
+58
+00:08:27,115 --> 00:08:40,160
+Our evolution of science sometimes takes strides, sometimes takes a while, and I think we're absolutely in exciting phase of AI right now.
+
+59
+00:08:40,470 --> 00:08:45,745
+It's interesting hearing you paint this grand vision for AI.
+
+60
+00:08:45,745 --> 00:09:04,255
+Going back a little bit, there was one of the piece of your background that I found inspiring, which is when you're just getting started, I've heard you speak about how your physics student, but not only that, you're also running a laundromat to pay for school.
+
+61
+00:09:04,255 --> 00:09:08,480
+Just tell us more about that.
+
+62
+00:09:09,690 --> 00:09:15,895
+I came to this country, to New Jersey actually when I was 15.
+
+63
+00:09:15,895 --> 00:09:31,600
+One thing great about being in New Jersey is it was close to Princeton so I often just take a weekend trip with my parents and to admire the place where Einstein spent most of his career in the latter half of his life.
+
+64
+00:09:31,600 --> 00:09:37,060
+But with typical immigrant life and it was tough.
+
+65
+00:09:37,060 --> 00:09:45,090
+By the time I enter Princeton, my parents didn't speak English and one thing led to another.
+
+66
+00:09:45,090 --> 00:09:54,935
+It turns out running a dry cleaner might be the best option for my family, especially for me to lead that business because it's a weekend business.
+
+67
+00:09:54,935 --> 00:09:59,845
+If it's a weekday business, it would be hard for me to be a student.
+
+68
+00:09:59,845 --> 00:10:09,515
+It's actually, believe or not, running a dry cleaning shop is very machine-heavy, which is good for a STEM student like me.
+
+69
+00:10:09,515 --> 00:10:18,390
+We decided to open a dry cleaner shop in a small town in New Jersey called Parsippany in New Jersey.
+
+70
+00:10:18,390 --> 00:10:32,100
+It turned out we were physically not too far from Bell Labs and where lots of early convolutional neural network research was happening, but I had no idea.
+
+71
+00:10:32,100 --> 00:10:34,790
+It's just summer intern at the ancient.
+
+72
+00:10:34,790 --> 00:10:37,475
+That is right, with Rob Shapiro.
+
+73
+00:10:37,475 --> 00:10:43,325
+With Michael Kearns was my mentor and Rob Shapiro, inventor of those things creator algorithms.
+
+74
+00:10:43,325 --> 00:10:44,930
+You're encoding AI.
+
+75
+00:10:44,930 --> 00:10:51,800
+I was trying to [inaudible] Only much later that I started interning.
+
+76
+00:10:51,800 --> 00:10:56,180
+Yeah. Then it was seven years.
+
+77
+00:10:56,180 --> 00:11:04,235
+I did that for the entire undergrad and most of my grad school and I hire my parents. Yeah.
+
+78
+00:11:04,235 --> 00:11:06,230
+Yeah. Now, that's really inspiring.
+
+79
+00:11:06,230 --> 00:11:10,370
+I know you've been bred into doing exactly where all your life.
+
+80
+00:11:10,370 --> 00:11:16,220
+I think the story of running a laundromat to globally prominent computer scientists.
+
+81
+00:11:16,220 --> 00:11:23,915
+I hope that inspires some people watching this that no matter where you are, there's plenty of for everyone.
+
+82
+00:11:23,915 --> 00:11:25,880
+I don't even know this.
+
+83
+00:11:25,880 --> 00:11:34,400
+My high-school job was office admin and so to this day I remember doing a lot of photocopying.
+
+84
+00:11:34,400 --> 00:11:36,395
+The exciting part was using this shredder.
+
+85
+00:11:36,395 --> 00:11:38,195
+That was a glamorous one.
+
+86
+00:11:38,195 --> 00:11:46,145
+I was doing so much coffee in high school I thought, boy, felony, I could build a robot to do this for the coffee, maybe I could do something.
+
+87
+00:11:46,145 --> 00:12:05,840
+Did you succeed? Still working on it. When people think about you and the work you've done, one of the huge successes everyone thinks about this ImageNet where help establish early benchmark for computer vision.
+
+88
+00:12:05,840 --> 00:12:10,880
+It was really completely instrumental to the modern rise of deep learning and computer vision.
+
+89
+00:12:10,880 --> 00:12:16,670
+One thing I bet not many people know about is how you actually got started on ImageNet.
+
+90
+00:12:16,670 --> 00:12:20,135
+Tell us the origin story of ImageNet.
+
+91
+00:12:20,135 --> 00:12:27,830
+Yeah. Well Andrew, that's a good question because a lot of people see ImageNet as just labeling a ton of images.
+
+92
+00:12:27,830 --> 00:12:34,655
+But where we began was really going after a Northstar brings back my physics background.
+
+93
+00:12:34,655 --> 00:12:40,490
+When I enter grad school, when did you enter grad year? '97.
+
+94
+00:12:40,490 --> 00:12:44,045
+I was three years later that year, 2000.
+
+95
+00:12:44,045 --> 00:12:55,820
+That was a very exciting period because I was in computer vision and computational neural science lab of Pietro Purana and Christoph car at Caltech.
+
+96
+00:12:55,820 --> 00:13:01,175
+Leading up to that, there has been, first of all, two things was very exciting.
+
+97
+00:13:01,175 --> 00:13:06,920
+One is that the world of AI at that point wasn't called AI.
+
+98
+00:13:06,920 --> 00:13:12,025
+Computer vision or natural language processing has founded Lingua Franca.
+
+99
+00:13:12,025 --> 00:13:18,145
+It's machine learning, statistical modeling as a new tool has emerged.
+
+100
+00:13:18,145 --> 00:13:19,870
+I mean, it's been around.
+
+101
+00:13:19,870 --> 00:13:26,630
+I remember when the idea of applying machine learning to computer vision, that was a controversial thing.
+
+102
+00:13:26,630 --> 00:13:36,095
+I was the first generation of graduate students who were embracing all the base net, all the inference algorithms and all that.
+
+103
+00:13:36,095 --> 00:13:39,770
+That was one exciting happening.
+
+104
+00:13:39,770 --> 00:13:58,745
+A certainly exciting happening that most people don't know and don't appreciate is the couple of decades probably one of them two or three decades of incredible cognitive science and cognitive neuroscience work in the field of vision, in the world of vision, human vision.
+
+105
+00:13:58,745 --> 00:14:04,010
+That has really established a couple of really critical Northstar problems.
+
+106
+00:14:04,010 --> 00:14:08,075
+Just understanding of human visual processing and human intelligence.
+
+107
+00:14:08,075 --> 00:14:14,120
+One of them is the recognition of understanding of natural objects and natural things.
+
+108
+00:14:14,120 --> 00:14:20,255
+Because a lot of the psychology and cognitive science work is pointing to us.
+
+109
+00:14:20,255 --> 00:14:26,090
+That is an innately optimized, whatever that word is.
+
+110
+00:14:26,090 --> 00:14:39,245
+Functionality and the ability of human intelligence is more robust, faster, and more nuanced than we had thought.
+
+111
+00:14:39,245 --> 00:14:48,005
+We even find neural correlates, brain areas devoted to faces or places or body parts.
+
+112
+00:14:48,005 --> 00:14:59,520
+These two things lead to my PhD study of using machine-learning methods to work on real-world objects recognition.
+
+113
+00:14:59,520 --> 00:15:19,475
+But it becomes very painful very quickly that we are coming banging against one of the most continued to be the most important challenge in AI machine learning is the lack of generalizability.
+
+114
+00:15:19,475 --> 00:15:26,360
+You can design a beautiful model or you want if you're overfitting the model.
+
+115
+00:15:26,360 --> 00:15:32,690
+I remember when it used be possible to publish a computer vision and paper showing it works on one image.
+
+116
+00:15:32,690 --> 00:15:33,810
+Exactly.
+
+117
+00:15:33,810 --> 00:15:37,540
+It's just the overfitting.
+
+118
+00:15:37,540 --> 00:15:43,210
+The models are not very expressive, and we lack the data.
+
+119
+00:15:43,210 --> 00:15:52,090
+We also as a field was betting on making the variables very rich by hand engineered features.
+
+120
+00:15:52,090 --> 00:16:00,865
+Remember, every variable carrying a ton of semantic meaning, but with hand engineered features.
+
+121
+00:16:00,865 --> 00:16:10,645
+Then towards the end of my PhD, my advisor, Pietro and I start to look at each other and say, well, boy, we need more data.
+
+122
+00:16:10,645 --> 00:16:24,580
+If we believe in this North Star problem of object recognition, and we look back at the tools we have, mathematically speaking, we're overfitting every model we're encountering.
+
+123
+00:16:24,580 --> 00:16:27,100
+We need to take a fresh look at this.
+
+124
+00:16:27,100 --> 00:16:28,960
+One thing led to another.
+
+125
+00:16:28,960 --> 00:16:32,470
+He and I decided we'll just do at that point.
+
+126
+00:16:32,470 --> 00:16:36,985
+We think it was a large-scale data project called Caltech 101.
+
+127
+00:16:36,985 --> 00:16:38,575
+I remember the dataset.
+
+128
+00:16:38,575 --> 00:16:41,970
+I wrote papers using your Caltech 101 dataset way back.
+
+129
+00:16:41,970 --> 00:16:44,665
+You did, you and your early graduate student.
+
+130
+00:16:44,665 --> 00:16:48,220
+You have benefit a lot of researchers, that Caltech 101 dataset.
+
+131
+00:16:48,220 --> 00:16:57,595
+That was me and my mom labeling images, and a couple of undergrads, but it was the early days of Internet.
+
+132
+00:16:57,595 --> 00:17:02,335
+Suddenly the availability of data was a new thing.
+
+133
+00:17:02,335 --> 00:17:07,930
+I remember Pietro still have this super expensive digital camera.
+
+134
+00:17:07,930 --> 00:17:14,140
+I think it was Canon or something like $6,000 walking around Caltech taking pictures.
+
+135
+00:17:14,140 --> 00:17:17,860
+But we're the Internet generation.
+
+136
+00:17:17,860 --> 00:17:27,730
+I go to Google image search, I start to see these thousands and tens of thousands of images and I tell Pietro, "Let's just download." Of course it's not that easy to download.
+
+137
+00:17:27,730 --> 00:17:29,380
+One thing led to another.
+
+138
+00:17:29,380 --> 00:17:41,200
+We build this Caltech 101 dataset of 101 object categories, and about 30,000 pictures.
+
+139
+00:17:41,200 --> 00:17:53,155
+I think us really saying that even though everyone's heard of ImageNet today, even you took a couple of iterations where you did Caltech 101 and that was a success.
+
+140
+00:17:53,155 --> 00:17:58,390
+Lots of people used it for even the early learnings from building Caltech 101.
+
+141
+00:17:58,390 --> 00:18:03,070
+They gave you the basis to build what turned out to be an even bigger success.
+
+142
+00:18:03,070 --> 00:18:11,670
+Except that by the time I became an assistant professor, we started to look at the problem.
+
+143
+00:18:11,670 --> 00:18:13,950
+I realized it's way bigger than we think.
+
+144
+00:18:13,950 --> 00:18:21,490
+Just mathematically speaking, Caltech 101 was not sufficient to power the algorithms.
+
+145
+00:18:21,490 --> 00:18:24,370
+We decided to do image there.
+
+146
+00:18:24,370 --> 00:18:28,690
+That was the time people start to think we're doing too much.
+
+147
+00:18:28,690 --> 00:18:40,870
+It's just too crazy, the idea of downloading the entire Internet of images, mapping out all the English nouns was a little bit.
+
+148
+00:18:40,870 --> 00:18:43,210
+I start to get a lot of push back.
+
+149
+00:18:43,210 --> 00:19:17,590
+I remember at one of the CVPR conference when I presented the early idea of ImageNet, a couple of researchers publicly questioned and said, "If you cannot recognize one category of object, let's say the chair you're sitting in, how do you imagine or what's the use of a dataset of 22,000 classes of 15 million images." In the end, that giant dataset unlocked a lot of value for [inaudible] number of researchers around the world.
+
+150
+00:19:17,590 --> 00:19:26,500
+I think it was the combination of betting on the right North Star problem and the data that drives it.
+
+151
+00:19:26,500 --> 00:19:28,660
+It was a fun process.
+
+152
+00:19:28,660 --> 00:19:43,900
+To me when I think about that story, it seems like one of those examples where sometimes people feel like they should only work on projects without the huge thing at the first outset.
+
+153
+00:19:43,900 --> 00:19:50,245
+But I feel like for people working in machine learning, if your first project is a bit smaller, it's totally fine.
+
+154
+00:19:50,245 --> 00:19:52,270
+Have a good win.
+
+155
+00:19:52,270 --> 00:19:58,375
+Use the learning to build up to even bigger things, and then sometimes you get the ImageNet size win all of it.
+
+156
+00:19:58,375 --> 00:20:07,180
+But in the meantime, I think it's also important to be driven by an audacious goal though.
+
+157
+00:20:07,180 --> 00:20:19,780
+You can size your problem or size your project as local milestones and so on along this journey, but I also look at some of our current students.
+
+158
+00:20:19,780 --> 00:20:27,190
+They're so pure pressured by this current climate of publishing nonstop.
+
+159
+00:20:27,190 --> 00:20:33,970
+It becomes more incremental papers to just get into a publication for the sake of it.
+
+160
+00:20:33,970 --> 00:20:42,300
+I personally always push my students to ask the question, what is the North Star that's driving you? Yeah, that's true.
+
+161
+00:20:42,300 --> 00:20:52,235
+Myself when I do research over the years, I've always pretty much done what I'm excited about, where I want to try to push the view forward.
+
+162
+00:20:52,235 --> 00:20:53,450
+Doesn't have to listen to people.
+
+163
+00:20:53,450 --> 00:20:55,940
+Have to listen to people let them shape your opinion.
+
+164
+00:20:55,940 --> 00:21:03,020
+But in the end, I think the best researchers let the world shape their opinion, but in the end, drive things for using their own opinion.
+
+165
+00:21:03,020 --> 00:21:04,175
+Totally agree, yeah.
+
+166
+00:21:04,175 --> 00:21:06,450
+It's your own fire.
+
+167
+00:21:07,000 --> 00:21:20,015
+As a research program developed, you've wound up taking your, let's say, foundations in computer vision and neuroscience and apply it to all sorts of topics including your very visibly health care.
+
+168
+00:21:20,015 --> 00:21:22,100
+Looking at neuroscience applications.
+
+169
+00:21:22,100 --> 00:21:24,470
+We'd love to hear a bit more about that.
+
+170
+00:21:24,470 --> 00:21:35,015
+Yeah, happy to. I think the evolution of my research in computer vision also follows the evolution of visual intelligence in animals.
+
+171
+00:21:35,015 --> 00:21:38,165
+There are two topics that truly excites me.
+
+172
+00:21:38,165 --> 00:21:47,420
+One is what is a truly impactful application area that would help human lives? That's my health care work.
+
+173
+00:21:47,420 --> 00:22:01,010
+The other one is what is vision at the end of the day about? That brings me to trying to close the loop between perception and robotic learning.
+
+174
+00:22:01,010 --> 00:22:24,860
+On the healthcare side, one thing, Andrew, there was a number that shocked me about 10 years ago when I met my long term collaborator, Dr. Arnie Milstein at Stanford Medical School, and that number is about a quarter of a million Americans die of medical errors every year.
+
+175
+00:22:24,860 --> 00:22:30,515
+I had never imagined a number being that high due to medical errors.
+
+176
+00:22:30,515 --> 00:22:38,705
+There are many reasons, but we can rest assure most of the reasons are not intentional.
+
+177
+00:22:38,705 --> 00:22:45,485
+These are errors of unintended mistakes and solar, for example.
+
+178
+00:22:45,485 --> 00:22:47,150
+That's a mind boggling number.
+
+179
+00:22:47,150 --> 00:22:47,960
+It is.
+
+180
+00:22:47,960 --> 00:22:51,665
+It's been about 40,000 deaths a year from automotive accidents.
+
+181
+00:22:51,665 --> 00:22:56,855
+It's just completely tragic and this is even [inaudible] I was going to say that.
+
+182
+ --> 00:22:56,855
+I'm glad you brought it up.
+
+183
+00:22:56,855 --> 00:22:58,580
+Just one example.
+
+184
+00:22:58,580 --> 00:23:10,535
+One number within that mind-boggling number is the number of hospital acquired infection resulted fatality is more than 95,000.
+
+185
+00:23:10,535 --> 00:23:16,620
+That's 2.5 times than the death of car accidents.
+
+186
+00:23:16,870 --> 00:23:22,100
+In this particular case, hospital acquired infection as a result of many things.
+
+187
+00:23:22,100 --> 00:23:27,890
+But in enlarge, lack of good hand hygiene practice.
+
+188
+00:23:27,890 --> 00:23:34,910
+If you look at WHO, there has been a lot of protocols about clinicians hand hygiene practice.
+
+189
+00:23:34,910 --> 00:23:48,095
+But in real health care delivery, when things get busy and when the process is tedious and when there's a lack of feedback system, you still make a lot of mistakes.
+
+190
+00:23:48,095 --> 00:24:01,190
+Another tragic medical fact is that more than $70 billion every year are spent in full resulted injuries and fatalities.
+
+191
+00:24:01,190 --> 00:24:05,930
+Most of this happen to elderlies at home, but also in the hospital rooms.
+
+192
+00:24:05,930 --> 00:24:08,360
+These are huge issues.
+
+193
+00:24:08,360 --> 00:24:18,410
+When Arnie and I got together back in 2012, it was the height of self-driving car, let's say not hype.
+
+194
+00:24:18,410 --> 00:24:23,255
+But what's the right word? Excitement in Silicon Valley.
+
+195
+00:24:23,255 --> 00:24:42,620
+Then we look at the technology of smart sensing cameras, lidars, whatever, smart sensors, machine-learning algorithm, and holistic understanding of a complex environment with high-stakes for human lives.
+
+196
+00:24:42,620 --> 00:24:51,650
+I was looking at all that for self-driving car and realized in healthcare delivery, we have the same situation.
+
+197
+00:24:51,650 --> 00:24:58,415
+Much of the process, the human behavior process of health care is in the dark.
+
+198
+00:24:58,415 --> 00:25:09,755
+If we could have smart sensors be it in patient rooms or senior homes to help our clinicians and patients to stay safer, that will be amazing.
+
+199
+00:25:09,755 --> 00:25:15,845
+Arnie and I embarked on this, what we call ambient intelligence research agenda.
+
+200
+00:25:15,845 --> 00:25:32,450
+But one thing I learned which probably will lead to our other topics, is as soon as you're applying AI to real human conditions, there's a lot of human issues in addition to machine learning issues, for example, privacy.
+
+201
+00:25:32,450 --> 00:25:41,570
+I remember reading some of your papers with Arnie and found it really interesting how you could build and deploy systems that were relatively privacy preserving.
+
+202
+00:25:41,570 --> 00:25:50,800
+Yeah, well, thank you. Well, the first iteration of that technology is we use cameras that do not capture RGB information.
+
+203
+00:25:50,800 --> 00:25:55,020
+You've used a lot of that in self-driving car, that depth cameras, for example.
+
+204
+00:25:55,020 --> 00:26:04,920
+There you preserve a lot of privacy information just by not seeing the faces and the identity of the people.
+
+205
+00:26:04,920 --> 00:26:21,960
+But what's really interesting over the past decade is the changes of technology is actually giving us a bigger toolset for privacy, preserved, a computing in this condition, for example, on-device inference.
+
+206
+00:26:21,960 --> 00:26:31,145
+As the chips getting more and more powerful, if you don't have to transmit any data through the network and to the central server, you help people better.
+
+207
+00:26:31,145 --> 00:26:40,550
+Federated learning, we know it's still early stage, but that's another potential tool for privacy, preserved computing.
+
+208
+00:26:40,550 --> 00:26:45,815
+Then differential privacy and also encryption technologies.
+
+209
+00:26:45,815 --> 00:26:59,255
+We're starting to see that human demand, privacy and other issues is driving actually a new wave of machine learning technology in ambient intelligence in health care.
+
+210
+00:26:59,255 --> 00:27:07,550
+Yeah, I've been encouraged to see your real practical applications of differential privacy that are actually real.
+
+211
+00:27:07,550 --> 00:27:12,995
+Federated Learning as you said, Pray the PRRs little bit ahead of the reality, but I think we'll get there.
+
+212
+00:27:12,995 --> 00:27:21,950
+But it's interesting how consumers in the last several years have, fortunately, gotten much more knowledgeable about privacy and increasingly.
+
+213
+00:27:21,950 --> 00:27:26,960
+I think the public is also making us to be better scientist.
+
+214
+00:27:26,960 --> 00:27:37,085
+Yeah, I think ultimately people understand the AI hosts everyone, including us, but holds everyone accountable for really doing the right thing.
+
+215
+00:27:37,085 --> 00:27:38,640
+Yeah.
+
+216
+00:27:39,040 --> 00:27:50,840
+On that note, one of the really interesting piece of work you've been doing has been leading several efforts to help educate legislators.
+
+217
+00:27:50,840 --> 00:27:59,690
+I hope governments, especially US government, work through better laws and better regulation, especially as it relates to AI.
+
+218
+00:27:59,690 --> 00:28:08,015
+That sounds a very important and I suspect some days they'll be, I would guess, somewhat frustrating work, but we'd love to hear more about that.
+
+219
+00:28:08,015 --> 00:28:12,470
+Yeah, first of all, I have to credit many, many people.
+
+220
+00:28:12,470 --> 00:28:19,640
+About four years ago, I was actually finishing my sabbatical from Google time.
+
+221
+00:28:19,640 --> 00:28:23,195
+I was very privileged to work with so many businesses.
+
+222
+00:28:23,195 --> 00:28:35,330
+Enterprise developers, just a large number and variety of vertical industries are realizing AI's human impact.
+
+223
+00:28:35,330 --> 00:28:54,290
+That was one, meaning faculty leaders at Stanford and also just our president, provost, former President and former provost all get together and realize there is a historical role that Stanford needs to play in advances of AI.
+
+224
+00:28:54,290 --> 00:28:59,135
+We were part of the birth place of AI.
+
+225
+00:28:59,135 --> 00:29:24,410
+A lot of work, our previous generation have done and all of work you've done and some of the work I've done lead to today's AI, what is our historical opportunity and responsibility? With that, we believe that the next generation of AI education and research and policy needs to be human centered.
+
+226
+00:29:24,410 --> 00:29:44,495
+Having established the humans center AI institute, what we call HAI, one of the work that really took me outside of my comfort zone were aiming expertise is really a deeper engagement with policy thinkers and makers.
+
+227
+00:29:44,495 --> 00:29:53,330
+Because we're here in Silicon Valley and there is a culture in Silicon Valley is we just keep making things and the law will catch up by itself.
+
+228
+00:29:53,330 --> 00:30:04,460
+But AI is impacting human lives and sometimes negatively so rapidly that it is not good for any of us.
+
+229
+00:30:04,460 --> 00:30:14,000
+If we, the experts, are not at the table with a policy thinkers and makers to really try to make this technology better for the people.
+
+230
+00:30:14,000 --> 00:30:32,455
+We're talking about fairness, we're talking about privacy, we also are talking about the brain drain of AI to industry and the concentration of data and compute in a small number of technology companies.
+
+231
+00:30:32,455 --> 00:30:37,100
+All these are really part of the changes of our time.
+
+232
+00:30:37,100 --> 00:30:45,290
+Some are really exciting changes, some have profoundly impact that we cannot necessarily predicting yet.
+
+233
+00:30:45,290 --> 00:31:00,995
+One of the policy work that Stanford AI has very proudly engaged in, is we were one of the leading universities that lobbied a bill called the National AI Research Cloud Task Force Bill.
+
+234
+00:31:00,995 --> 00:31:05,165
+It changed the name from research Cloud to research resource.
+
+235
+00:31:05,165 --> 00:31:10,085
+Now the bill's acronym is NAIR, National AI Research Resource.
+
+236
+00:31:10,085 --> 00:31:37,850
+This bill is calling for a task force to put together a road-map for America's public sector, especially higher education, and research sector to increase their access to resource for AI compute and AI data and really is aimed to rejuvenate America's ecosystem in AI innovation and research.
+
+237
+00:31:37,850 --> 00:31:55,970
+I'm on the 12-person task-force under Biden administration for this bill, and we hope that's a piece of policy that is not a regulatory policy, it's more an incentive policy to build and rejuvenate ecosystems.
+
+238
+00:31:55,970 --> 00:32:05,240
+I'm glad that you're doing this, The Help Shape US Policy, and making sure enough resources are allocated to ensure healthy development of AI.
+
+239
+00:32:05,240 --> 00:32:09,065
+I feel like this is something that every country needs at this point.
+
+240
+00:32:09,065 --> 00:32:10,190
+Yeah.
+
+241
+00:32:10,190 --> 00:32:23,450
+Just from the things that you are doing by yourself, not to speak of the things that the Global AI Community is doing, there's just so much going on in AI right now so many opportunities, so much excitement.
+
+242
+00:32:23,450 --> 00:32:33,050
+I found that for someone getting started in machine learning for the first time, sometimes there's so much going on and they can almost feel a little bit overwhelming.
+
+243
+00:32:33,050 --> 00:32:33,830
+Totally.
+
+244
+00:32:33,830 --> 00:32:42,020
+What advice do you have for someone getting started in machine learning? Good question, Andrew, I'm sure you have great advice.
+
+245
+00:32:42,020 --> 00:32:47,930
+You're one of the world-known advocate for AI machine learning education.
+
+246
+00:32:47,930 --> 00:32:57,920
+I do get this question a lot as well, and one thing you're totally right is AI really today feels different from our time.
+
+247
+00:32:57,920 --> 00:33:01,835
+Just for the record, you all are still on time.
+
+248
+00:33:01,835 --> 00:33:11,225
+That's true when we were starting in AI, I love that exactly we're still part of this.
+
+249
+00:33:11,225 --> 00:33:16,580
+When we first started the entrance to AI and machine learning was relatively narrow.
+
+250
+00:33:16,580 --> 00:33:22,025
+You almost have to start from computer science and go.
+
+251
+00:33:22,025 --> 00:33:31,700
+As a physics major, I still had to wedge myself into the computer science track or electrical engineering track to get to AI.
+
+252
+00:33:31,700 --> 00:33:42,560
+But today, I actually think that there is many aspect of AI that creates entry points for people from all walks of life.
+
+253
+00:33:42,560 --> 00:34:09,470
+On the technical side, I think it's obvious that there's just incredible plethora of resources out there on the Internet from Coursera to YouTube, to TikTok there's just so much that students worldwide can learn about AI and machine learning compared to the time we began learning machine learning.
+
+254
+00:34:09,470 --> 00:34:25,100
+Also any campuses, we're not talking about just college campuses we're talking about high school campuses, or even sometimes earlier, we're starting to see more available classes and resources.
+
+255
+00:34:25,100 --> 00:34:40,565
+I do encourage those of the young people with a technical interest and resource and opportunity to embrace these resources because it's a lot of fun.
+
+256
+00:34:40,565 --> 00:35:17,300
+But having said that, for those of you who are not coming from a technical angle, who still are passionate about AI, whether it's the downstream application or the creativity it engenders, or the policy and social angle, or important social problems, whether it's digital economics or the governance or history, ethics, political sciences, I do invite you to join us because there is a lot of work to be done.
+
+257
+00:35:17,300 --> 00:35:47,390
+There's a lot of unknown questions, for example, my colleague at HAI are trying to find answers on how do you define our economy in the digital age? What does it mean when robots, or software, are participating in the workflow more and more? How do you measure our economy? That's not AI coding question that is AI impact question.
+
+258
+00:35:47,390 --> 00:35:53,355
+We're looking at the incredible advances of generative AI and there will be more.
+
+259
+00:35:53,355 --> 00:36:15,240
+What does that mean for creativity, and to the creators from music to art, to writing? I think there is a lot of concerns, and I think it's rightfully so, but in the meantime, it takes people together to figure this out and also to use this new tool.
+
+260
+00:36:15,250 --> 00:36:26,555
+In short, I just think it's a very exciting time, and anybody with any walks of life, as long as you are passionate about this, there's a role to play.
+
+261
+00:36:26,555 --> 00:36:33,735
+That's really exciting when you talk about economics, think about my conversations with Professor Erik Brynjolfsson.
+
+262
+00:36:33,735 --> 00:36:50,935
+Impact of AI on the economy, but from what you're saying and I agree, it seems like no matter what your current interests are, AI is such a general-purpose technology that the combination of your current interest in AI is often promising.
+
+263
+00:36:50,935 --> 00:37:04,600
+I find that even for learners that may not yet have a specific interest, if you find your way into AI, start learning things, often the interest will evolve and then you can start to craft your own path.
+
+264
+00:37:04,600 --> 00:37:16,000
+Given way AI is today, there's still so much room and so much need for a lot more people to craft their own path, to do this exciting work that I think the world still needs a lot more of.
+
+265
+00:37:16,000 --> 00:37:17,380
+Totally agree.
+
+266
+00:37:17,380 --> 00:37:34,270
+One piece of work that you did I thought was very cool was starting a program initially called SAILORS and then later AI4ALL, which was really reaching out to high school and even younger students, to try to give them more opportunities in AI, including people of all walks of life.
+
+267
+00:37:34,270 --> 00:37:36,130
+I'd love to hear more about that.
+
+268
+00:37:36,130 --> 00:37:43,795
+This is in the spirit of this conversation is that was back in 2015.
+
+269
+00:37:43,795 --> 00:37:58,075
+There was starting to be a lot of excitement of AI, but there was also starting to be this talk about killer robot coming next door, terminators coming.
+
+270
+00:37:58,075 --> 00:38:13,375
+At that time Andrew, I was the director of Stanford AI Lab, and I was thinking, we know how far we are from terminators coming and that seemed to be a little bit far-fetched concern.
+
+271
+00:38:13,375 --> 00:38:22,240
+But I was living my work life with a real concern I felt no one was talking about, which was the lack of representation in AI.
+
+272
+00:38:22,240 --> 00:38:29,690
+At that time, I guess after Daphne has left, I was the only woman faculty at Stanford AI Lab.
+
+273
+00:38:29,730 --> 00:38:44,980
+We're having very small, around 15% of women graduate students, and we really don't see anybody from the underrepresented minority groups in Stanford AI program.
+
+274
+00:38:44,980 --> 00:38:50,275
+This is a national or even worldwide issue, so it wasn't just Stanford.
+
+275
+00:38:50,275 --> 00:38:52,390
+Frankly, it still needs a lot of work today.
+
+276
+00:38:52,390 --> 00:39:49,060
+Exactly. How do we do this? Well, I got together with my former student Ugawa Sakofski, and also a long-term educator of STEM topics Doctor Rick Summer from Stanford Pre-Collegiate Study Program, and thought about inviting high schoolers at that time women, high-school young women to participate in a summer program to inspire them to learn AI, and that was how it started in 2015, and 2017 we got a lot of encouragement and support from people like Jensen and Lori Hung and Melinda Gates, and we formed a national non-profit AI4ALL, which is really committed to training or shaping tomorrow's leaders for AI.
+
+277
+00:39:49,060 --> 00:39:57,110
+From students of all walks of life, especially the traditionally under-served and underrepresented communities.
+
+278
+00:39:58,080 --> 00:40:25,960
+Till today, we've had many summer camps and summer programs across the country more than 15 universities are involved, and we have online curriculum to encourage students as well as college pathway programs to continue support these students' career by matching them with internships and mentors.
+
+279
+00:40:25,960 --> 00:40:31,555
+It's a continuous effort of encouraging students of all walks of life.
+
+280
+00:40:31,555 --> 00:40:37,195
+I remember back then, I think your group was printing these really cool t-shirts that asked the question.
+
+281
+00:40:37,195 --> 00:40:46,225
+AI will change the world, who will change AI? I thought the answer of making sure everyone can come in and participate, that was a great answer.
+
+282
+00:40:46,225 --> 00:40:49,550
+Still an important question today.
+
+283
+00:40:49,550 --> 00:40:55,740
+That's a great thought and I think that takes us toward the end of the interview.
+
+284
+00:40:55,740 --> 00:41:02,980
+Any final thoughts for the people watching this? Still, that this is a very nascent field.
+
+285
+00:41:02,980 --> 00:41:05,815
+As you said, Andrew, we're still in the middle of this.
+
+286
+00:41:05,815 --> 00:41:22,480
+I still feel there's just so many questions that I wake up excited to work on with my students in the lab, and I think there's a lot more opportunities for the young people out there who want to learn and contribute and shape tomorrow's AI.
+
+287
+00:41:22,480 --> 00:41:28,685
+Well said [inaudible] that's very inspiring, really great to chat with you, and thank you for attending this video.
+
+288
+00:41:28,685 --> 00:41:33,170
+Thank you. It's fun to have these conversations.
+

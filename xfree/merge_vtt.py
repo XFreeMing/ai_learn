@@ -79,7 +79,8 @@ def merge_vtt_lines(input_file, output_file):
 if __name__ == "__main__":
     # 获取指定目录下的所有vtt文件
     from pathlib import Path
-    path = Path("/home/xiaolt1/workspace/ai_learn/xfree/mls/Supervised_Machine_Learning_Regression_And_Classification/W1_Introduction_to_Machine_Learning/video/")
-    files = path.glob("*.vtt")
+    path = Path(__file__).resolve().parent / "mls/downloaded_videos/"
+    files = path.rglob("*.vtt")  # Use rglob to include subdirectories
     for file in files:
-        merge_vtt_lines(file, f"{str(path)}/{file.stem}_output.vtt")
+        merge_vtt_lines(file, file.with_name(f"{file.stem}_sentence.vtt"))
+   

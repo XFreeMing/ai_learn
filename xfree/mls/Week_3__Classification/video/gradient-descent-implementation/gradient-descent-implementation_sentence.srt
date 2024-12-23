@@ -1,0 +1,176 @@
+1
+00:00:01,040 --> 00:00:15,945
+To fit the parameters of a logistic regression model, we're going to try to find the values of the parameters w and b that minimize the cost function J of w and b, and we'll again apply gradient descent to do this.
+
+2
+00:00:15,945 --> 00:00:18,000
+Let's take a look at how.
+
+3
+00:00:18,000 --> 00:00:24,270
+In this video we'll focus on how to find a good choice of the parameters w and b.
+
+4
+00:00:24,270 --> 00:00:35,775
+After you've done so, if you give the model a new input, x, say a new patients at the hospital with a certain tumor size and age, then these are diagnosis.
+
+5
+00:00:35,775 --> 00:00:45,600
+The model can then make a prediction, or it can try to estimate the probability that the label y is one.
+
+6
+00:00:45,600 --> 00:00:50,875
+The average you can use to minimize the cost function is gradient descent.
+
+7
+00:00:50,875 --> 00:00:54,270
+Here again is the cost function.
+
+8
+00:00:54,270 --> 00:01:14,240
+If you want to minimize the cost j as a function of w and b, well, here's the usual gradient descent algorithm, where you repeatedly update each parameter as the 0 value minus Alpha, the learning rate times this derivative term.
+
+9
+00:01:14,240 --> 00:01:19,595
+Let's take a look at the derivative of j with respect to w_j.
+
+10
+00:01:19,595 --> 00:01:28,210
+This term up on top here, where as usual, j goes from one through n, where n is the number of features.
+
+11
+00:01:28,210 --> 00:01:48,575
+If someone were to apply the rules of calculus, you can show that the derivative with respect to w_j of the cost function capital J is equal to this expression over here, is 1 over m times the sum from 1 through m of this error term.
+
+12
+00:01:48,575 --> 00:01:56,220
+That is f minus the label y times x_j.
+
+13
+00:01:56,220 --> 00:02:02,520
+Here are just x I j is the j feature of training example i.
+
+14
+00:02:02,520 --> 00:02:08,500
+Now let's also look at the derivative of j with respect to the parameter b.
+
+15
+00:02:08,500 --> 00:02:12,575
+It turns out to be this expression over here.
+
+16
+00:02:12,575 --> 00:02:22,105
+It's quite similar to the expression above, except that it is not multiplied by this x superscript i subscript j at the end.
+
+17
+00:02:22,105 --> 00:02:41,970
+Just as a reminder, similar to what you saw for linear regression, the way to carry out these updates is to use simultaneous updates, meaning that you first compute the right-hand side for all of these updates and then simultaneously overwrite all the values on the left at the same time.
+
+18
+00:02:42,320 --> 00:02:50,435
+Let me take these derivative expressions here and plug them into these terms here.
+
+19
+00:02:50,435 --> 00:02:56,425
+This gives you gradient descent for logistic regression.
+
+20
+00:02:56,425 --> 00:03:01,940
+Now, one funny thing you might be wondering is, that's weird.
+
+21
+00:03:01,940 --> 00:03:26,390
+These two equations look exactly like the average we had come up with previously for linear regression so you might be wondering, is linear regression actually secretly the same as logistic regression? Well, even though these equations look the same, the reason that this is not linear regression is because the definition for the function f of x has changed.
+
+22
+00:03:26,390 --> 00:03:31,620
+In linear regression, f of x is, this is wx plus b.
+
+23
+00:03:31,620 --> 00:03:39,745
+But in logistic regression, f of x is defined to be the sigmoid function applied to wx plus b.
+
+24
+00:03:39,745 --> 00:03:52,985
+Although the algorithm written looked the same for both linear regression and logistic regression, actually they're two very different algorithms because the definition for f of x is not the same.
+
+25
+00:03:52,985 --> 00:04:02,870
+When we talked about gradient descent for linear regression previously, you saw how you can monitor a gradient descent to make sure it converges.
+
+26
+00:04:02,870 --> 00:04:09,655
+You can just apply the same method for logistic regression to make sure it also converges.
+
+27
+00:04:09,655 --> 00:04:18,990
+I've written out these updates as if you're updating the parameters w_j one parameter at a time.
+
+28
+00:04:19,310 --> 00:04:33,310
+Similar to the discussion on vectorized implementations of linear regression, you can also use vectorization to make gradient descent run faster for logistic regression.
+
+29
+00:04:33,310 --> 00:04:37,955
+I won't dive into the details of the vectorized implementation in this video.
+
+30
+00:04:37,955 --> 00:04:42,620
+But you can also learn more about it and see the code in the optional labs.
+
+31
+00:04:42,620 --> 00:04:48,220
+Now you know how to implement gradient descent for logistic regression.
+
+32
+00:04:48,220 --> 00:04:54,170
+You might also remember feature scaling when we were using linear regression.
+
+33
+00:04:54,170 --> 00:05:06,095
+Where you saw how feature scaling, that is scaling all the features to take on similar ranges of values, say between negative 1 and plus 1, how they can help gradient descent to converge faster.
+
+34
+00:05:06,095 --> 00:05:15,875
+Feature scaling applied the same way to scale the different features to take on similar ranges of values can also speed up gradient descent for logistic regression.
+
+35
+00:05:15,875 --> 00:05:25,655
+In the upcoming optional lab, you also see how the gradient for the logistic regression can be calculated in code.
+
+36
+00:05:25,655 --> 00:05:32,245
+This will be useful to look at because you also implement this in the practice lab at the end of this week.
+
+37
+00:05:32,245 --> 00:05:40,010
+After you run gradient descent in this lab, there'll be a nice set of animated plots that show gradient descent in action.
+
+38
+00:05:40,010 --> 00:05:50,395
+You see the sigmoid function, the contour plot of the cost, the 3D surface plot of the cost, and the learning curve or evolve as gradient descent runs.
+
+39
+00:05:50,395 --> 00:06:04,430
+There will be another optional lab after that, which is short and sweet, but also very useful because they're showing you how to use the popular scikit-learn library to train the logistic regression model for classification.
+
+40
+00:06:04,430 --> 00:06:11,660
+Many machine learning practitioners in many companies today use scikit-learn regularly as part of their job.
+
+41
+00:06:11,660 --> 00:06:18,845
+I hope you check out the scikit-learn function as well and take a look at how that is used. That's it.
+
+42
+00:06:18,845 --> 00:06:22,250
+You should now know how to implement logistic regression.
+
+43
+00:06:22,250 --> 00:06:31,020
+This is a very powerful and very widely used learning algorithm and you now know how to get it to work yourself.
+
+44
+ --> 00:06:31,020
+Congratulations.
+

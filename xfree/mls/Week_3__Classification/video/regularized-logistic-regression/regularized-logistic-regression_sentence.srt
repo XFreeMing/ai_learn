@@ -1,0 +1,148 @@
+1
+00:00:00,710 --> 00:00:05,970
+In this video, you see how to implement regularized logistic regression.
+
+2
+00:00:05,970 --> 00:00:21,375
+Just as the gradient update for logistic regression has seemed surprisingly similar to the gradient update for linear regression, you find that the gradient descent update for regularized logistic regression will also look similar to the update for regularized linear regression.
+
+3
+00:00:21,375 --> 00:00:23,940
+Let's take a look.
+
+4
+ --> 00:00:23,940
+Here is the idea.
+
+5
+00:00:23,940 --> 00:00:32,345
+We saw earlier that logistic regression can be prone to overfitting if you fit it with very high order polynomial features like this.
+
+6
+00:00:32,345 --> 00:00:49,345
+Here, z is a high order polynomial that gets passed into the sigmoid function like so to compute f. In particular, you can end up with a decision boundary that is overly complex and overfits as training set.
+
+7
+00:00:49,345 --> 00:01:01,480
+More generally, when you train logistic regression with a lot of features, whether polynomial features or some other features, there could be a higher risk of overfitting.
+
+8
+00:01:01,480 --> 00:01:05,270
+This was the cost function for logistic regression.
+
+9
+00:01:05,270 --> 00:01:13,355
+If you want to modify it to use regularization, all you need to do is add to it the following term.
+
+10
+00:01:13,355 --> 00:01:26,275
+Let's add lambda to regularization parameter over 2m times the sum from j equals 1 through n, where n is the number of features as usual of wj squared.
+
+11
+00:01:26,275 --> 00:01:39,160
+When you minimize this cost function as a function of w and b, it has the effect of penalizing parameters w_1, w_2 through w_n, and preventing them from being too large.
+
+12
+00:01:39,160 --> 00:01:49,255
+If you do this, then even though you're fitting a high order polynomial with a lot of parameters, you still get a decision boundary that looks like this.
+
+13
+00:01:49,255 --> 00:01:59,890
+Something that looks more reasonable for separating positive and negative examples while also generalizing hopefully to new examples not in the training set.
+
+14
+00:01:59,890 --> 00:02:04,310
+When using regularization, even when you have a lot of features.
+
+15
+00:02:04,310 --> 00:02:17,545
+How can you actually implement this? How can you actually minimize this cost function j of wb that includes the regularization term? Well, let's use gradient descent as before.
+
+16
+00:02:17,545 --> 00:02:21,255
+Here's a cost function that you want to minimize.
+
+17
+00:02:21,255 --> 00:02:30,820
+To implement gradient descent, as before, we'll carry out the following simultaneous updates over wj and b.
+
+18
+00:02:30,820 --> 00:02:34,795
+These are the usual update rules for gradient descent.
+
+19
+00:02:34,795 --> 00:02:54,315
+Just like regularized linear regression, when you compute where there are these derivative terms, the only thing that changes now is that the derivative respect to wj gets this additional term, lambda over m times wj added here at the end.
+
+20
+00:02:54,315 --> 00:02:59,500
+Again, it looks a lot like the update for regularized linear regression.
+
+21
+00:02:59,500 --> 00:03:11,365
+In fact is the exact same equation, except for the fact that the definition of f is now no longer the linear function, it is the logistic function applied to z.
+
+22
+00:03:11,365 --> 00:03:23,275
+Similar to linear regression, we will regularize only the parameters w, j, but not the parameter b, which is why there's no change the update you will make for b.
+
+23
+00:03:23,275 --> 00:03:29,970
+In the final optional lab of this week, you revisit overfitting.
+
+24
+00:03:29,970 --> 00:03:44,820
+In the interactive plot in the optional lab, you can now choose to regularize your models, both regression and classification, by enabling regularization during gradient descent by selecting a value for lambda.
+
+25
+00:03:44,820 --> 00:03:55,260
+Please take a look at the code for implementing regularized logistic regression in particular, because you'll implement this in practice lab yourself at the end of this week.
+
+26
+00:03:55,940 --> 00:04:00,770
+Now you know how to implement regularized logistic regression.
+
+27
+00:04:00,770 --> 00:04:09,490
+When I walk around Silicon Valley, there are many engineers using machine learning to create a ton of value, sometimes making a lot of money for the companies.
+
+28
+00:04:09,490 --> 00:04:23,400
+I know you've only been studying this stuff for a few weeks but if you understand and can apply linear regression and logistic regression, that's actually all you need to create some very valuable applications.
+
+29
+00:04:23,400 --> 00:04:34,805
+While the specific learning outcomes you use are important, knowing things like when and how to reduce overfitting turns out to be one of the very valuable skills in the real world as well.
+
+30
+00:04:34,805 --> 00:04:44,120
+I want to say congratulations on how far you've come and I want to say great job for getting through all the way to the end of this video.
+
+31
+00:04:44,120 --> 00:04:48,470
+I hope you also work through the practice labs and quizzes.
+
+32
+00:04:48,470 --> 00:04:53,120
+Having said that, there are still many more exciting things to learn.
+
+33
+00:04:53,120 --> 00:05:00,515
+In the second course of this specialization, you'll learn about neural networks, also called deep learning algorithms.
+
+34
+00:05:00,515 --> 00:05:11,620
+Neural networks are responsible for many of the latest breakthroughs in the eye today, from practical speech recognition to computers accurately recognizing objects and images, to self-driving cars.
+
+35
+00:05:11,620 --> 00:05:20,830
+The way neural network gets built actually uses a lot of what you've already learned, like cost functions, and gradient descent, and sigmoid functions.
+
+36
+00:05:20,830 --> 00:05:26,255
+Again, congratulations on reaching the end of this third and final week of Course 1.
+
+37
+00:05:26,255 --> 00:05:32,640
+I hope you have [inaudible] and I will see you in next week's material on neural networks.
+

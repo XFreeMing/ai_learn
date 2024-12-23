@@ -1,4 +1,4 @@
-import webvtt
+import re
 from dotenv import load_dotenv
 import os
 load_dotenv()
@@ -27,20 +27,65 @@ def format_time(vtt_time):
         
     return formatted_time
 
-def load_vtt(vtt_file):
+# def load_vtt(vtt_file):
+#     captions = []
+#     for caption in webvtt.read(vtt_file):
+#         formatted_start = format_time(caption.start)
+#         formatted_end = format_time(caption.end)
+#         captions.append({
+#             'start': caption.start,
+#             'end': caption.end,
+#             'formatted_start': formatted_start,
+#             'formatted_end': formatted_end,
+#             'text': caption.text
+#         })
+#     return captions
+def load_srt(srt_file):
     captions = []
-    for caption in webvtt.read(vtt_file):
-        formatted_start = format_time(caption.start)
-        formatted_end = format_time(caption.end)
-        captions.append({
-            'start': caption.start,
-            'end': caption.end,
-            'formatted_start': formatted_start,
-            'formatted_end': formatted_end,
-            'text': caption.text
-        })
+    with open(srt_file, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+    current_text = ""
+    current_start_time = ""
+    current_end_time = ""
+    sequence_number = 1
+    skip_header = True
+    for i in range(len(lines)):
+        line = lines[i].strip()
+        if skip_header:
+            if line == "WEBVTT":
+                continue
+            elif line == "":
+                skip_header = False
+                continue
+            else:
+                skip_header = False
+        timecode_match = re.match(r'^(\d{2}:\d{2}:\d{2}\,\d{3}) --> (\d{2}:\d{2}:\d{2}\,\d{3})$', line)
+        if timecode_match:
+            if not current_start_time:
+                current_start_time = timecode_match.group(1)
+            current_end_time = timecode_match.group(2)
+        elif line.isdigit():
+            continue
+        elif line:
+            if current_text:
+                current_text += " " + line
+            else:
+                current_text = line
+            if current_text.endswith('.'):
+                captions.append({
+                    'sequence_number': sequence_number,
+                    'start': current_start_time,
+                    'end': current_end_time,
+                    'text': current_text
+                })
+                sequence_number += 1
+                current_text = ""
+                current_start_time = ""
+        if i + 1 < len(lines):
+            next_line = lines[i + 1].strip()
+            if re.match(r'^(\d{2}:\d{2}:\d{2}\,\d{3}) --> (\d{2}:\d{2}:\d{2}\,\d{3})$', next_line):
+                current_end_time = timecode_match.group(2)
     return captions
-
 
 def get_model(content):
     model="moonshot-v1-128k"
@@ -59,15 +104,15 @@ def llm_kimi_stream(content):
     )
     return response
 
-def generate_summary_stream(path):
-    path_str = str(path)
+def generate_summary_stream(path,output_path):
     video_name = os.path.basename(path)
     
     
-    captions = load_vtt(f'{path_str[:-4]}.vtt')
+    captions = load_srt(path)
     prompt = f"""
     ## Goal
-    根据视频标题信息和字幕信息总结视频作者所有的观点'{video_name[:-4]}'
+    根据视频标题信息和字幕信息用中文总结视频作者所有的观点
+    标题：'{video_name[:-13]}'
     视频字幕:
     --- 
     {captions}
@@ -78,13 +123,13 @@ def generate_summary_stream(path):
     3. markdown格式。
     """
      
-    summary_path = f'{path_str[:-4]}.md'
-    if os.path.exists(summary_path):
+    
+    if os.path.exists(output_path):
         return f"{video_name}:已存在"
 
     llm_res = llm_kimi_stream(prompt)
     show_data = ""
-    with open(summary_path, 'w') as file:
+    with open(output_path, 'w',encoding='utf-8') as file:
         for chunk in llm_res:
             data = chunk.choices[0].delta.content or "" if chunk.choices else ""
             show_data+=data
@@ -92,10 +137,13 @@ def generate_summary_stream(path):
     return show_data
 
 if __name__ == "__main__":
-    # 获取指定目录下的所有mp4文件
+ 
     from pathlib import Path
-    path = Path("/home/ai_demo/workspace/ai_learn/xfree/ml/Supervised_Machine_Learning_Regression_And_Classification/W1_Introduction_to_Machine_Learning")
-    files = path.glob("*.mp4")
+    path = Path(__file__).resolve().parent / "mls/downloaded_videos/"
+    files = path.rglob("*_sentence.srt")
     for file in files:
-        print(generate_summary_stream(file))
+        generate_summary_stream(file,file.with_name(f"{file.stem[:-9]}_summary.md"))
+        print(f"{file}处理完成")
+
+
 

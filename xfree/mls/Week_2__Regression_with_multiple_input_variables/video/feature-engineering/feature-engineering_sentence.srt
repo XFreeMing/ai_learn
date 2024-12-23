@@ -1,0 +1,80 @@
+1
+00:00:00,740 --> 00:00:06,090
+The choice of features can have a huge impact on your learning algorithm's performance.
+
+2
+00:00:06,090 --> 00:00:14,085
+In fact, for many practical applications, choosing or entering the right features is a critical step to making the algorithm work well.
+
+3
+00:00:14,085 --> 00:00:21,150
+In this video, let's take a look at how you can choose or engineer the most appropriate features for your learning algorithm.
+
+4
+00:00:21,150 --> 00:00:27,840
+Let's take a look at feature engineering by revisiting the example of predicting the price of a house.
+
+5
+00:00:27,840 --> 00:00:31,140
+Say you have two features for each house.
+
+6
+00:00:31,140 --> 00:00:37,200
+X_1 is the width of the lot size of the plots of land that the house is built on.
+
+7
+00:00:37,200 --> 00:00:51,590
+This in real state is also called the frontage of the lot, and the second feature, x_2, is the depth of the lot size of, lets assume the rectangular plot of land that the house was built on.
+
+8
+00:00:51,590 --> 00:01:07,680
+Given these two features, x_1 and x_2, you might build a model like this where f of x is w_1x_1 plus w_2x_2 plus b, where x_1 is the frontage or width, and x_2 is the depth.
+
+9
+00:01:07,680 --> 00:01:10,045
+This model might work okay.
+
+10
+00:01:10,045 --> 00:01:17,160
+But here's another option for how you might choose a different way to use these features in the model that could be even more effective.
+
+11
+00:01:17,160 --> 00:01:24,375
+You might notice that the area of the land can be calculated as the frontage or width times the depth.
+
+12
+00:01:24,375 --> 00:01:33,940
+You may have an intuition that the area of the land is more predictive of the price, than the frontage and depth as separate features.
+
+13
+00:01:33,940 --> 00:01:39,660
+You might define a new feature, x_3, as x_1 times x_2.
+
+14
+00:01:39,660 --> 00:01:44,875
+This new feature x_3 is equal to the area of the plot of land.
+
+15
+00:01:44,875 --> 00:02:12,430
+With this feature, you can then have a model f_w, b of x equals w_1x_1 plus w_2x_2 plus w_3x_3 plus b so that the model can now choose parameters w_1, w_2, and w_3, depending on whether the data shows that the frontage or the depth or the area x_3 of the lot turns out to be the most important thing for predicting the price of the house.
+
+16
+00:02:12,430 --> 00:02:33,545
+What we just did, creating a new feature is an example of what's called feature engineering, in which you might use your knowledge or intuition about the problem to design new features usually by transforming or combining the original features of the problem in order to make it easier for the learning algorithm to make accurate predictions.
+
+17
+00:02:33,545 --> 00:02:47,500
+Depending on what insights you may have into the application, rather than just taking the features that you happen to have started off with sometimes by defining new features, you might be able to get a much better model.
+
+18
+00:02:47,500 --> 00:02:50,625
+That's feature engineering.
+
+19
+00:02:50,625 --> 00:03:00,095
+It turns out that this one flavor of feature engineering, that allow you to fit not just straight lines, but curves, non-linear functions to your data.
+
+20
+00:03:00,095 --> 00:03:04,170
+Let's take a look in the next video at how you can do that.
+
